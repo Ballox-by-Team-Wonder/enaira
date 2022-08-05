@@ -16,7 +16,7 @@ export const getLoggedInUser = asyncRequest(`${namespace}/getLoggedInUser`, '/ap
 
 
 
-const DEFAULT = { status: null, data: null, error: null }
+const DEFAULT = { authStatus: null, userData: null, authError: null }
 
 //===================================================================================== 
 // slice

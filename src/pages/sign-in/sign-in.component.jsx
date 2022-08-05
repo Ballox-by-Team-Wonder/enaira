@@ -1,4 +1,45 @@
+import { useState } from 'react';
+
+import { Link, useNavigate } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux'
+import { loginUser } from '../../redux/auth/auth.slice';
+import { selectAuthUser } from '../../redux/auth/auth.selectors'
+
+import { Button } from '../../components/button/button.component';
+
+
 function SignIn() {
+  const navigate = useNavigate()
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+
+
+  const { authStatus, authError } = useSelector(selectAuthUser)
+
+
+  const dispatch = useDispatch()
+
+  const _loginUser = (data) => dispatch(loginUser(data))
+
+  
+
+  const handleChange = (e) => {
+    setFormData(prevState => {
+      return { ...prevState, [e.target.name]: e.target.value }
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    _loginUser(formData)
+    .unwrap()
+    .then(() => navigate('/dashboard'))
+  }
 
   return (
     <>
@@ -20,19 +61,24 @@ function SignIn() {
                   <h1 className="mb-1 fw-bold">Sign in</h1>
                   <span>
                     Don’t have an account?{" "}
-                    <a href="sign-up.html" className="ms-1">
+                    <Link to="/sign-up" className="ms-1">
                       Sign up
-                    </a>
+                    </Link>
                   </span>
                 </div>
+
+                <p style={{ color: 'red' }}>{ authError?.message }</p>
+
                 {/* Form */}
-                <form>
+                <form onSubmit={handleSubmit}>
                   {/* Username */}
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
-                      Username or email
+                      Email
                     </label>
                     <input
+                      value={formData.email}
+                      onChange={handleChange}
                       type="email"
                       id="email"
                       className="form-control"
@@ -47,6 +93,8 @@ function SignIn() {
                       Password
                     </label>
                     <input
+                      value={formData.password}
+                      onChange={handleChange}
                       type="password"
                       id="password"
                       className="form-control"
@@ -59,9 +107,12 @@ function SignIn() {
                   <div>
                     {/* Button */}
                     <div className="d-grid">
-                      <button type="submit" className="btn btn-primary ">
-                        Sign in
-                      </button>
+                      <Button 
+                        type="submit"
+                        status={authStatus}
+                      >
+                        Sign In
+                      </Button>
                     </div>
                   </div>                  
                 </form>

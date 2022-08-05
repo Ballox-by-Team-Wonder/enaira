@@ -2,24 +2,25 @@ import { HTTP_STATUS } from "../../constants/http-status.constant"
 import { setUserToken } from "../../services/auth.service"
 
 export const authUserPending = (state) => {
-    state.user.status = HTTP_STATUS.PENDING
+    state.user.authStatus = HTTP_STATUS.PENDING
+    state.user.authError = null
 }
 
 export const authUserFulfilled = (state, { payload }) => {
-    state.user.status = HTTP_STATUS.FULFILLED
-    state.user.data = payload.result
-    state.user.error = null
+    state.user.authStatus = HTTP_STATUS.FULFILLED
+    state.user.userData = payload.result
+    state.user.authError = null
     setUserToken(payload.token)
 }
 
 export const authUserRejected = (state, { payload }) => {
-    state.user.status = HTTP_STATUS.REJECTED
-    state.user.error = payload
-    state.user.data = null
+    state.user.authStatus = HTTP_STATUS.REJECTED
+    state.user.authError = payload
+    state.user.userData = null
 }
 
 export const getLoggedInUserFulfilled = (state, { payload }) => {
-    state.user.status = HTTP_STATUS.FULFILLED
-    state.user.data = payload
-    state.user.error = null
+    state.user.authStatus = HTTP_STATUS.FULFILLED
+    state.user.userData = payload
+    state.user.authError = null
 }
