@@ -1,6 +1,17 @@
+import { useSelector } from "react-redux";
 import { Sidebar } from "../../components/navigation/sidebar.component";
+import { selectAuthUser } from "../../redux/auth/auth.selectors";
+
+import Avatar from '@mui/material/Avatar';
+import { Chart } from "../../components/chart/chart.component";
+import { chartData } from "../../constants/chart-data.constant";
 
 function Dashboard() {
+    const { userData } = useSelector(selectAuthUser)
+  
+    const firstName = userData?.firstName || '__'
+    const lastName = userData?.lastName || '__'
+    
   return (
     <>
       <div className="pt-5 pb-5">
@@ -20,12 +31,23 @@ function Dashboard() {
               <div className="d-flex align-items-end justify-content-between bg-white px-4 pt-2 pb-4 rounded-none rounded-bottom-md shadow-sm">
                 <div className="d-flex align-items-center">
                   <div className="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
-                    <img
+                    <Avatar 
+                        sx={{ 
+                            height: 70, 
+                            width: 70,
+                            fontSize: '30px',
+                            paddingTop: '7px',
+                            bgcolor: '#18113c'
+                        }}
+                    >
+                        { userData?._id && `${firstName[0]}.${lastName[0]}` }
+                    </Avatar>
+                    {/* <img
                       src="../assets/images/avatar/avatar-1.jpg"
                       className="avatar-xl rounded-circle border border-4 border-white position-relative"
                       alt=""
-                    />
-                    <a
+                    /> */}
+                    {/* <a
                       href="#"
                       className="position-absolute top-0 end-0"
                       data-bs-toggle="tooltip"
@@ -38,11 +60,11 @@ function Dashboard() {
                         height={30}
                         width={30}
                       />
-                    </a>
+                    </a> */}
                   </div>
                   <div className="lh-1">
-                    <h2 className="mb-0">Jenny Wilson</h2>
-                    <p className="mb-0 d-block">@Jennywilson</p>
+                    <h2 className="mb-0">{ `${firstName} ${lastName}` }</h2>
+                    {/* <p className="mb-0 d-block">@Jennywilson</p> */}
                   </div>
                 </div>
                 <div>
@@ -62,7 +84,7 @@ function Dashboard() {
               {/* User profile */}
 
               <Sidebar />
-              
+
             </div>
             <div className="col-lg-9 col-md-8 col-12">
               <div className="row">
@@ -118,26 +140,27 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
+              
               {/* Card */}
               <div className="card mb-4">
                 {/* Card header */}
                 <div className="card-header">
-                  <h3 className="h4 mb-0">Earnings</h3>
+                  <h3 className="h4 mb-0">Transaction History</h3>
                 </div>
                 {/* Card body */}
                 <div className="card-body">
-                  <div id="earning" className="apex-charts" />
-                </div>
-              </div>
-              {/* Card */}
-              <div className="card mb-4">
-                {/* Card header */}
-                <div className="card-header">
-                  <h3 className="h4 mb-0">Order</h3>
-                </div>
-                {/* Card body */}
-                <div className="card-body">
-                  <div id="orderColumn" className="apex-charts" />
+                    <div style={{ height: '400px'}}>
+                        <Chart
+                            data={chartData}
+                            barData={[
+                                { dataKey: 'credit', fill: "#86e695" },
+                                { dataKey: 'debit', fill: '#f398ca' },
+                            ]}
+                        />
+                    </div>
+
+
+                  {/* <div id="orderColumn" className="apex-charts" /> */}
                 </div>
               </div>
               <div className="card mb-4">

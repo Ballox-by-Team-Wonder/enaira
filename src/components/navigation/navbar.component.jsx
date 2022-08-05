@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import { deepPurple } from '@mui/material/colors';
+import { selectAuthUser } from "../../redux/auth/auth.selectors";
+import { useSelector } from "react-redux";
 
 export function Navbar() {
+  const { userData } = useSelector(selectAuthUser)
   
+  const firstName = userData?.firstName
+  const lastName = userData?.lastName
+
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-default">
         <div className="container-fluid px-0">
           <Link
             className="navbar-brand"
-            to="/"
+            to="/dashboard"
           >
             <img
               src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo.svg"
@@ -1354,7 +1363,7 @@ export function Navbar() {
               />
             </form>
             <ul className="navbar-nav navbar-right-wrap ms-auto d-none d-lg-block">
-              <li className="dropdown d-inline-block stopevent">
+              {/* <li className="dropdown d-inline-block stopevent">
                 <a
                   className="btn btn-light btn-icon rounded-circle text-muted indicator indicator-primary"
                   href="#"
@@ -1562,7 +1571,7 @@ export function Navbar() {
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> */}
               <li className="dropdown ms-2 d-inline-block">
                 <a
                   className="rounded-circle"
@@ -1571,12 +1580,15 @@ export function Navbar() {
                   data-bs-display="static"
                   aria-expanded="false"
                 >
-                  <div className="avatar avatar-md avatar-indicators avatar-online">
-                    <img
+                  <div className="avatar avatar-md avatar-indicators">
+                  <Avatar sx={{ bgcolor: deepPurple[500], paddingTop: '5px' }}>
+                    { userData?._id && `${firstName[0]}${lastName[0]}`}
+                  </Avatar>
+                    {/* <img
                       alt="avatar"
                       src="../assets/images/avatar/avatar-1.jpg"
                       className="rounded-circle"
-                    />
+                    /> */}
                   </div>
                 </a>
                 <div className="dropdown-menu dropdown-menu-end">
