@@ -14,7 +14,7 @@ function SignIn() {
                     <img
                       src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo-icon.svg"
                       className="mb-4"
-                      alt
+                      alt=""
                     />
                   </a>
                   <h1 className="mb-1 fw-bold">Sign in</h1>
@@ -55,22 +55,7 @@ function SignIn() {
                       required
                     />
                   </div>
-                  {/* Checkbox */}
-                  <div className="d-lg-flex justify-content-between align-items-center mb-4">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="rememberme"
-                      />
-                      <label className="form-check-label " htmlFor="rememberme">
-                        Remember me
-                      </label>
-                    </div>
-                    <div>
-                      <a href="forget-password.html">Forgot your password?</a>
-                    </div>
-                  </div>
+                  
                   <div>
                     {/* Button */}
                     <div className="d-grid">
@@ -78,38 +63,7 @@ function SignIn() {
                         Sign in
                       </button>
                     </div>
-                  </div>
-                  <hr className="my-4" />
-                  <div className="mt-4 text-center">
-                    {/*Facebook*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-facebook"
-                    >
-                      <i className="mdi mdi-facebook fs-4" />
-                    </a>
-                    {/*Twitter*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-twitter"
-                    >
-                      <i className="mdi mdi-twitter fs-4" />
-                    </a>
-                    {/*LinkedIn*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-linkedin"
-                    >
-                      <i className="mdi mdi-linkedin" />
-                    </a>
-                    {/*GitHub*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-github"
-                    >
-                      <i className="mdi mdi-github" />
-                    </a>
-                  </div>
+                  </div>                  
                 </form>
               </div>
             </div>

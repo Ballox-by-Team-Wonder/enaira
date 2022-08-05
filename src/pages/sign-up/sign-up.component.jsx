@@ -13,7 +13,7 @@ function SignUp() {
                     <img
                       src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo-icon.svg"
                       className="mb-4"
-                      alt
+                      alt=""
                     />
                   </a>
                   <h1 className="mb-1 fw-bold">Sign up</h1>
@@ -68,28 +68,7 @@ function SignUp() {
                       required
                     />
                   </div>
-                  {/* Checkbox */}
-                  <div className="mb-3">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="agreeCheck"
-                      />
-                      <label className="form-check-label" htmlFor="agreeCheck">
-                        <span>
-                          I agree to the{" "}
-                          <a href="terms-condition-page.html">
-                            Terms of Service{" "}
-                          </a>
-                          and
-                          <a href="terms-condition-page.html">
-                            Privacy Policy.
-                          </a>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
+                  
                   <div>
                     {/* Button */}
                     <div className="d-grid">
@@ -97,37 +76,6 @@ function SignUp() {
                         Create Free Account
                       </button>
                     </div>
-                  </div>
-                  <hr className="my-4" />
-                  <div className="mt-4 text-center">
-                    {/*Facebook*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-facebook"
-                    >
-                      <i className="mdi mdi-facebook fs-4" />
-                    </a>
-                    {/*Twitter*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-twitter"
-                    >
-                      <i className="mdi mdi-twitter fs-4" />
-                    </a>
-                    {/*LinkedIn*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-linkedin"
-                    >
-                      <i className="mdi mdi-linkedin" />
-                    </a>
-                    {/*GitHub*/}
-                    <a
-                      href="#"
-                      className="btn-social btn-social-outline btn-github"
-                    >
-                      <i className="mdi mdi-github" />
-                    </a>
                   </div>
                 </form>
               </div>

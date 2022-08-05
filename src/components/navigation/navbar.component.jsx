@@ -1,18 +1,20 @@
-export function Navigation() {
+import { Link } from "react-router-dom";
+
+export function Navbar() {
   
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-default">
         <div className="container-fluid px-0">
-          <a
+          <Link
             className="navbar-brand"
-            href="https://codescandy.com/geeks-bootstrap-5/index.html"
+            to="/"
           >
             <img
               src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo.svg"
               alt=""
             />
-          </a>
+          </Link>
           {/* Mobile view nav wrap */}
           <ul className="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap">
             <li className="dropdown stopevent">
@@ -1650,6 +1652,18 @@ export function Navigation() {
                         <i className="fe fe-settings me-2" />
                         Settings
                       </a>
+                    </li>
+                    <li>
+                      <Link to="/sign-in" className="dropdown-item">
+                        <i className="fe fe-settings me-2" />
+                        Sign in
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/sign-up" className="dropdown-item">
+                        <i className="fe fe-settings me-2" />
+                        Sign up
+                      </Link>
                     </li>
                   </ul>
                   <div className="dropdown-divider" />
