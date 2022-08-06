@@ -1,14 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import { deepPurple } from '@mui/material/colors';
 import { selectAuthUser } from "../../redux/auth/auth.selectors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/auth/auth.slice";
 
 export function Navbar() {
+  const navigate = useNavigate()
+
   const { userData } = useSelector(selectAuthUser)
   
   const firstName = userData?.firstName
   const lastName = userData?.lastName
+
+  const dispatch = useDispatch()
+
+  const _logout = () => dispatch(logout())
+
+
+  const handleLogout = () => {
+    _logout()
+    navigate('/sign-in')
+  }
 
 
   return (
@@ -27,14 +40,14 @@ export function Navbar() {
           {/* Mobile view nav wrap */}
           <ul className="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap">
             <li className="dropdown stopevent">
-              <a
+              {/* <a
                 className="btn btn-light btn-icon rounded-circle text-muted indicator indicator-primary"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
               >
                 <i className="fe fe-bell"> </i>
-              </a>
+              </a> */}
               <div className="dropdown-menu dropdown-menu-end shadow">
                 <div>
                   <div className="border-bottom px-3 pb-3 d-flex justify-content-between align-items-center">
@@ -235,16 +248,19 @@ export function Navbar() {
                 role="button"
                 data-bs-toggle="dropdown"
               >
-                <div className="avatar avatar-md avatar-indicators avatar-online">
-                  <img
+                <div className="avatar avatar-md">
+                  <Avatar sx={{ bgcolor: deepPurple[500], paddingTop: '5px' }}>
+                    { userData?._id && `${firstName[0]}${lastName[0]}`}
+                  </Avatar>
+                  {/* <img
                     alt="avatar"
                     src="../assets/images/avatar/avatar-1.jpg"
                     className="rounded-circle"
-                  />
+                  /> */}
                 </div>
               </a>
               <div className="dropdown-menu dropdown-menu-end shadow">
-                <div className="dropdown-item">
+                {/* <div className="dropdown-item">
                   <div className="d-flex">
                     <div className="avatar avatar-md avatar-indicators avatar-online">
                       <img
@@ -317,13 +333,15 @@ export function Navbar() {
                       Settings
                     </a>
                   </li>
-                </ul>
-                <div className="dropdown-divider" />
+                </ul> */}
+
+                {/* <div className="dropdown-divider" /> */}
+
                 <ul className="list-unstyled">
-                  <li>
+                  <li onClick={handleLogout}>
                     <a
                       className="dropdown-item"
-                      href="https://codescandy.com/geeks-bootstrap-5/index.html"
+                      href="#"
                     >
                       <i className="fe fe-power me-2" />
                       Sign Out
@@ -334,7 +352,7 @@ export function Navbar() {
             </li>
           </ul>
           {/* Button */}
-          <button
+          {/* <button
             className="navbar-toggler collapsed"
             type="button"
             data-bs-toggle="collapse"
@@ -346,10 +364,10 @@ export function Navbar() {
             <span className="icon-bar top-bar mt-0" />
             <span className="icon-bar middle-bar" />
             <span className="icon-bar bottom-bar" />
-          </button>
+          </button> */}
           {/* Collapse */}
           <div className="collapse navbar-collapse" id="navbar-default">
-            <ul className="navbar-nav">
+            {/* <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -1351,8 +1369,9 @@ export function Navbar() {
                   </div>
                 </div>
               </li>
-            </ul>
-            <form className="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
+            </ul> */}
+
+            {/* <form className="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
               <span className="position-absolute ps-3 search-icon">
                 <i className="fe fe-search" />
               </span>
@@ -1361,7 +1380,8 @@ export function Navbar() {
                 className="form-control ps-6"
                 placeholder="Search Courses"
               />
-            </form>
+            </form> */}
+
             <ul className="navbar-nav navbar-right-wrap ms-auto d-none d-lg-block">
               {/* <li className="dropdown d-inline-block stopevent">
                 <a
@@ -1581,9 +1601,9 @@ export function Navbar() {
                   aria-expanded="false"
                 >
                   <div className="avatar avatar-md avatar-indicators">
-                  <Avatar sx={{ bgcolor: deepPurple[500], paddingTop: '5px' }}>
-                    { userData?._id && `${firstName[0]}${lastName[0]}`}
-                  </Avatar>
+                    <Avatar sx={{ bgcolor: deepPurple[500], paddingTop: '5px' }}>
+                      { userData?._id && `${firstName[0]}${lastName[0]}`}
+                    </Avatar>
                     {/* <img
                       alt="avatar"
                       src="../assets/images/avatar/avatar-1.jpg"
@@ -1592,7 +1612,7 @@ export function Navbar() {
                   </div>
                 </a>
                 <div className="dropdown-menu dropdown-menu-end">
-                  <div className="dropdown-item">
+                  {/* <div className="dropdown-item">
                     <div className="d-flex">
                       <div className="avatar avatar-md avatar-indicators avatar-online">
                         <img
@@ -1606,9 +1626,11 @@ export function Navbar() {
                         <p className="mb-0 text-muted">annette@geeksui.com</p>
                       </div>
                     </div>
-                  </div>
-                  <div className="dropdown-divider" />
-                  <ul className="list-unstyled">
+                  </div> */}
+
+                  {/* <div className="dropdown-divider" /> */}
+
+                  {/* <ul className="list-unstyled">
                     <li className="dropdown-submenu dropstart-lg">
                       <a
                         className="dropdown-item dropdown-list-group-item dropdown-toggle"
@@ -1677,13 +1699,13 @@ export function Navbar() {
                         Sign up
                       </Link>
                     </li>
-                  </ul>
-                  <div className="dropdown-divider" />
+                  </ul> */}
+                  {/* <div className="dropdown-divider" /> */}
                   <ul className="list-unstyled">
-                    <li>
+                    <li onClick={handleLogout}>
                       <a
                         className="dropdown-item"
-                        href="https://codescandy.com/geeks-bootstrap-5/index.html"
+                        href="#"
                       >
                         <i className="fe fe-power me-2" />
                         Sign Out

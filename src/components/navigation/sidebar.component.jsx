@@ -1,4 +1,14 @@
+import { Link, useLocation } from "react-router-dom";
+
+
 export function Sidebar() {
+  const { pathname } = useLocation();
+
+  const handleNavItemClassName = (name) => {
+    return pathname.includes(name)
+      ? 'nav-item active'
+      : 'nav-item'
+  }
     
   return (
     <>
@@ -27,109 +37,116 @@ export function Sidebar() {
           <div className="navbar-nav flex-column">
             <span className="navbar-header">Dashboard</span>
             <ul className="list-unstyled ms-n2 mb-4">
-              {/* Nav item */}
-              <li className="nav-item active">
-                <a className="nav-link" href="dashboard-instructor.html">
+              
+              <li className={handleNavItemClassName('dashboard')}>
+                <Link className="nav-link" to="/dashboard">
                   <i className="fe fe-home nav-icon" />
                   My Dashboard
-                </a>
+                </Link>
               </li>
-              {/* Nav item */}
-              <li className="nav-item">
+
+              <li className={handleNavItemClassName('payout')}>
+                <Link className="nav-link" to="/payout">
+                  <i className="fe fe-dollar-sign nav-icon" />
+                  Payouts
+                </Link>
+              </li>
+              
+              {/* <li className="nav-item">
                 <a className="nav-link" href="instructor-courses.html">
                   <i className="fe fe-book nav-icon" />
                   My Courses
                 </a>
               </li>
-              {/* Nav item */}
+              
               <li className="nav-item">
                 <a className="nav-link" href="instructor-reviews.html">
                   <i className="fe fe-star nav-icon" />
                   Reviews
                 </a>
               </li>
-              {/* Nav item */}
+              
               <li className="nav-item">
                 <a className="nav-link" href="instructor-earning.html">
                   <i className="fe fe-pie-chart nav-icon" />
                   Earnings
                 </a>
               </li>
-              {/* Nav item */}
+              
               <li className="nav-item">
                 <a className="nav-link" href="instructor-order.html">
                   <i className="fe fe-shopping-bag nav-icon" />
                   Orders
                 </a>
               </li>
-              {/* Nav item */}
+              
               <li className="nav-item">
                 <a className="nav-link" href="instructor-students.html">
                   <i className="fe fe-users nav-icon" />
                   Students
                 </a>
-              </li>
-              {/* Nav item */}
-              <li className="nav-item">
-                <a className="nav-link" href="instructor-payouts.html">
-                  <i className="fe fe-dollar-sign nav-icon" />
-                  Payouts
-                </a>
-              </li>
-              {/* Nav item */}
-              <li className="nav-item ">
+              </li> */}
+              
+             
+              
+              {/* <li className="nav-item ">
                 <a className="nav-link" href="instructor-quiz.html">
                   <i className="fe fe-help-circle nav-icon" />
                   Quiz
                 </a>
-              </li>
+              </li> */}
             </ul>
+
             {/* Navbar header */}
-            <span className="navbar-header">Account Settings</span>
+            {/* <span className="navbar-header">Account Settings</span> */}
+
             <ul className="list-unstyled ms-n2 mb-0">
               {/* Nav item */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="profile-edit.html">
                   <i className="fe fe-settings nav-icon" />
                   Edit Profile
                 </a>
-              </li>
+              </li> */}
               {/* Nav item */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="security.html">
                   <i className="fe fe-user nav-icon" />
                   Security
                 </a>
-              </li>
+              </li> */}
               {/* Nav item */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="social-profile.html">
                   <i className="fe fe-refresh-cw nav-icon" />
                   Social Profiles
                 </a>
-              </li>
+              </li> */}
               {/* Nav item */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="notifications.html">
                   <i className="fe fe-bell nav-icon" />
                   Notifications
                 </a>
-              </li>
+              </li> */}
               {/* Nav item */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="profile-privacy.html">
                   <i className="fe fe-lock nav-icon" />
                   Profile Privacy
                 </a>
-              </li>
+              </li> */}
               {/* Nav item */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="delete-profile.html">
                   <i className="fe fe-trash nav-icon" />
                   Delete Profile
                 </a>
-              </li>
+              </li> */}
               {/* Nav item */}
+
+              <hr />
+
               <li className="nav-item">
                 <a
                   className="nav-link"

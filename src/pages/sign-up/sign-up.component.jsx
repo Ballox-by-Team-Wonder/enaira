@@ -16,6 +16,7 @@ function SignUp() {
     firstName: '',
     lastName: '',
     email: '',
+    accountType: '',
     password: '',
     confirmPassword: ''
   })
@@ -121,6 +122,24 @@ function SignUp() {
                       placeholder="Email address here"
                       required
                     />
+                  </div>
+                  {/* Account type */}
+                  <div className="mb-3" onChange={handleChange}>
+                    <label htmlFor="" className="form-label">
+                      Account Type
+                    </label>:&nbsp;&nbsp;
+                    <input 
+                      type="radio" 
+                      value="client" 
+                      name="accountType"
+                      required
+                    /> Client &nbsp;&nbsp;
+                    <input 
+                      type="radio" 
+                      value="practitioner" 
+                      name="accountType"
+                      required
+                    /> Practitioner
                   </div>
                   {/* Password */}
                   <div className="mb-3">

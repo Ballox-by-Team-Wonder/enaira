@@ -1,88 +1,23 @@
-import { useSelector } from "react-redux";
 import { Sidebar } from "../../components/navigation/sidebar.component";
-import { selectAuthUser } from "../../redux/auth/auth.selectors";
-
-import Avatar from '@mui/material/Avatar';
 import { Chart } from "../../components/chart/chart.component";
+import { UserInfo } from "../../components/user-info/user-info.component";
+
 import { chartData } from "../../constants/chart-data.constant";
 
-function Dashboard() {
-    const { userData } = useSelector(selectAuthUser)
-  
-    const firstName = userData?.firstName || '__'
-    const lastName = userData?.lastName || '__'
+function Dashboard() {  
     
   return (
     <>
       <div className="pt-5 pb-5">
         <div className="container">
           {/* User info */}
-          <div className="row align-items-center">
-            <div className="col-xl-12 col-lg-12 col-md-12 col-12">
-              {/* Bg */}
-              <div
-                className="pt-16 rounded-top-md"
-                style={{
-                  background:
-                    "url(../assets/images/background/profile-bg.jpg) no-repeat",
-                  backgroundSize: "cover",
-                }}
-              />
-              <div className="d-flex align-items-end justify-content-between bg-white px-4 pt-2 pb-4 rounded-none rounded-bottom-md shadow-sm">
-                <div className="d-flex align-items-center">
-                  <div className="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
-                    <Avatar 
-                        sx={{ 
-                            height: 70, 
-                            width: 70,
-                            fontSize: '30px',
-                            paddingTop: '7px',
-                            bgcolor: '#18113c'
-                        }}
-                    >
-                        { userData?._id && `${firstName[0]}.${lastName[0]}` }
-                    </Avatar>
-                    {/* <img
-                      src="../assets/images/avatar/avatar-1.jpg"
-                      className="avatar-xl rounded-circle border border-4 border-white position-relative"
-                      alt=""
-                    /> */}
-                    {/* <a
-                      href="#"
-                      className="position-absolute top-0 end-0"
-                      data-bs-toggle="tooltip"
-                      data-placement="top"
-                      title="Verified"
-                    >
-                      <img
-                        src="https://codescandy.com/geeks-bootstrap-5/assets/images/svg/checked-mark.svg"
-                        alt=""
-                        height={30}
-                        width={30}
-                      />
-                    </a> */}
-                  </div>
-                  <div className="lh-1">
-                    <h2 className="mb-0">{ `${firstName} ${lastName}` }</h2>
-                    {/* <p className="mb-0 d-block">@Jennywilson</p> */}
-                  </div>
-                </div>
-                <div>
-                  <a
-                    href="add-course.html"
-                    className="btn btn-primary btn-sm d-none d-md-block"
-                  >
-                    Create New Course
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <UserInfo />
+
           {/* Content */}
           <div className="row mt-0 mt-md-4">
             <div className="col-lg-3 col-md-4 col-12">
               {/* User profile */}
-
+              
               <Sidebar />
 
             </div>
@@ -163,15 +98,15 @@ function Dashboard() {
                   {/* <div id="orderColumn" className="apex-charts" /> */}
                 </div>
               </div>
-              <div className="card mb-4">
-                {/* Card header */}
+              {/* <div className="card mb-4">
+                
                 <div className="card-header border-bottom-0">
                   <h3 className="h4 mb-0">Best Selling Courses</h3>
                 </div>
-                {/* Table */}
+                
                 <div className="table-responsive border-0">
                   <table className="table mb-0">
-                    {/* Table head */}
+                    
                     <thead className="table-light">
                       <tr>
                         <th scope="col" className="border-0">
@@ -186,7 +121,7 @@ function Dashboard() {
                         <th scope="col" className="border-0" />
                       </tr>
                     </thead>
-                    {/* Table body */}
+                    
                     <tbody>
                       <tr>
                         <td className="align-middle border-top-0">
@@ -381,7 +316,7 @@ function Dashboard() {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
