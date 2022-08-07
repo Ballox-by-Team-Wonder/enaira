@@ -111,6 +111,9 @@ function Kyc() {
                     </div>
                   </div>                  
                 </form>
+                <Link to="/dashboard">
+                  <span>Skip for now</span>
+                </Link>
               </div>
             </div>
           </div>

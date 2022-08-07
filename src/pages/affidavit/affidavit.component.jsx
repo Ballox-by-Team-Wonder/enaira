@@ -6,8 +6,8 @@ import { useSelect } from "../../hooks/use-select.hook";
 import { useState } from 'react'
 
 const affidavitOptions = [
-    { name: 'Name', value: 'name' },
-    { name: 'Age', value: 'age' },
+    { name: 'Change of Name', value: 'name' },
+    { name: 'Change of Age', value: 'age' },
 ]
 
 function Affidavit() {

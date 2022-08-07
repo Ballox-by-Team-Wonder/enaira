@@ -28,9 +28,9 @@ export function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-default">
         <div className="container-fluid px-0">
-          <Link
+          <a
             className="navbar-brand"
-            to="/dashboard"
+            href="https://ballox-by-team-wonder.github.io/iSwear-main/"
           >
             <img
               src="/assets/images/png/iswear.png"
@@ -46,7 +46,7 @@ export function Navbar() {
             >
               iSwear
             </span>
-          </Link>
+          </a>
           {/* Mobile view nav wrap */}
           <ul className="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap">
             <li className="dropdown stopevent">
