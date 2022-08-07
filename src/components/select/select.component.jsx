@@ -15,11 +15,11 @@ export function Select({ label, value, handleChange, list }) {
                 label={label}
                 value={value}
                 onChange={handleChange}
-                variant="standard"
+                variant="filled"
             >
-                <MenuItem value="">
+                {/* <MenuItem value="">
                     <em>None</em>
-                </MenuItem>
+                </MenuItem> */}
                 
                 { list.map((item, idx) => (
                     <MenuItem 

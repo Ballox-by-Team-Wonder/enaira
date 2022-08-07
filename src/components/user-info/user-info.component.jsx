@@ -60,14 +60,14 @@ export function UserInfo() {
                     {/* <p className="mb-0 d-block">@Jennywilson</p> */}
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   <a
                     href="add-course.html"
                     className="btn btn-primary btn-sm d-none d-md-block"
                   >
                     Create New Course
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

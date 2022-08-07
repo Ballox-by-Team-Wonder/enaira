@@ -204,12 +204,12 @@ function Payout() {
                         </option>
                       </select>
                     </div>
-                    <div className="col-lg-2 col-md-6 text-lg-end">
-                      {/* Button */}
+                    {/* <div className="col-lg-2 col-md-6 text-lg-end">
+                      
                       <a href="#" className="btn btn-outline-white" download>
                         <i className="fe fe-download" />
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 {/* Table */}
@@ -217,7 +217,7 @@ function Payout() {
                   <table className="table mb-0 text-nowrap">
                     <thead className="table-light">
                       <tr>
-                        <th className="border-0 font-size-inherit">
+                        {/* <th className="border-0 font-size-inherit">
                           <div className="form-check">
                             <input
                               type="checkbox"
@@ -229,7 +229,7 @@ function Payout() {
                               htmlFor="checkAll"
                             />
                           </div>
-                        </th>
+                        </th> */}
                         <th className="border-0">ID</th>
                         <th className="border-0">Method</th>
                         <th className="border-0">Status</th>
@@ -239,418 +239,9 @@ function Payout() {
                       </tr>
                     </thead>
                     <tbody>
+                      
                       <tr>
-                        <td className="align-middle border-top-0">
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawTwo"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawTwo"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle border-top-0">#1060</td>
-                        <td className="align-middle border-top-0">PayPal</td>
-                        <td className="align-middle border-top-0">
-                          <span className="badge bg-warning">Pending</span>
-                        </td>
-                        <td className="align-middle border-top-0">$1200</td>
-                        <td className="align-middle border-top-0">
-                          Sept 15, 2020
-                        </td>
-                        <td className="align-middle border-top-0">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawThree"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawThree"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#1038</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-success">Paid</span>
-                        </td>
-                        <td className="align-middle">$2000</td>
-                        <td className="align-middle">Aug 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown1"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown1"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawFour"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawFour"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#1016</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-success">Paid</span>
-                        </td>
-                        <td className="align-middle">$3590</td>
-                        <td className="align-middle">July 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown2"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown2"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawFive"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawFive"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#1008</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-success">Paid</span>
-                        </td>
-                        <td className="align-middle">$4500</td>
-                        <td className="align-middle">Aug 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown3"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown3"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawSix"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawSix"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#1002</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-success">Paid</span>
-                        </td>
-                        <td className="align-middle">$4500</td>
-                        <td className="align-middle">May 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown4"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown4"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawSeven"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawSeven"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#982</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-success">Paid</span>
-                        </td>
-                        <td className="align-middle">$1232</td>
-                        <td className="align-middle">April 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown5"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown5"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawEight"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawEight"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#970</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-danger">Cancel</span>
-                        </td>
-                        <td className="align-middle">$4235</td>
-                        <td className="align-middle">March 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown6"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown6"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawNine"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawNine"
-                            />
-                          </div>
-                        </td>
-                        <td className="align-middle">#965</td>
-                        <td className="align-middle">PayPal</td>
-                        <td className="align-middle">
-                          <span className="badge bg-success">Paid</span>
-                        </td>
-                        <td className="align-middle">$1231</td>
-                        <td className="align-middle">Feb 15, 2020</td>
-                        <td className="align-middle">
-                          <span className="dropdown dropstart">
-                            <a
-                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                              href="#"
-                              role="button"
-                              id="paymentDropdown7"
-                              data-bs-toggle="dropdown"
-                              data-bs-offset="-20,20"
-                              aria-expanded="false"
-                            >
-                              <i className="fe fe-more-vertical" />
-                            </a>
-                            <span
-                              className="dropdown-menu"
-                              aria-labelledby="paymentDropdown7"
-                            >
-                              <span className="dropdown-header">Setting </span>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
-                              </a>
-                              <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
-                              </a>
-                            </span>
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
+                        {/* <td>
                           <div className="form-check">
                             <input
                               type="checkbox"
@@ -662,9 +253,9 @@ function Payout() {
                               htmlFor="withdrawTen"
                             />
                           </div>
-                        </td>
+                        </td> */}
                         <td className="align-middle">#953</td>
-                        <td className="align-middle">PayPal</td>
+                        <td className="align-middle">eNaira</td>
                         <td className="align-middle">
                           <span className="badge bg-success">Paid</span>
                         </td>
@@ -687,14 +278,14 @@ function Payout() {
                               className="dropdown-menu"
                               aria-labelledby="paymentDropdown8"
                             >
-                              <span className="dropdown-header">Setting </span>
+                              <span className="dropdown-header">More</span>
                               <a className="dropdown-item" href="#">
-                                <i className="fe fe-edit dropdown-item-icon" />
-                                Edit
+                                {/* <i className="fe fe-edit dropdown-item-icon" /> */}
+                                View
                               </a>
                               <a className="dropdown-item" href="#">
-                                <i className="fe fe-trash dropdown-item-icon" />
-                                Remove
+                                {/* <i className="fe fe-trash dropdown-item-icon" /> */}
+                                Download
                               </a>
                             </span>
                           </span>
@@ -702,7 +293,7 @@ function Payout() {
                       </tr>
                     </tbody>
                   </table>
-                  <div className="pt-4 pb-4">
+                  {/* <div className="pt-4 pb-4">
                     <nav>
                       <ul className="pagination justify-content-center mb-0">
                         <li className="page-item disabled">
@@ -737,7 +328,7 @@ function Payout() {
                         </li>
                       </ul>
                     </nav>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

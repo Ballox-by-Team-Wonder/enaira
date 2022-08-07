@@ -3,7 +3,7 @@ import axios from 'axios'
 import { userToken } from './auth.service'
 
 export const baseUrl = process.env.NODE_ENV === 'production' 
-    ? "https://samuel-memories.herokuapp.com"
+    ? "https://enaira.herokuapp.com"
     : "http://localhost:5000"
 
 const API = axios.create({ baseURL: baseUrl })
