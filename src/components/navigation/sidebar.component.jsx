@@ -45,6 +45,13 @@ export function Sidebar() {
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link className="nav-link" to="/affidavit">
+                  <i className="fe fe-book nav-icon" />
+                  Affidavit
+                </Link>
+              </li>
+
               <li className={handleNavItemClassName('payout')}>
                 <Link className="nav-link" to="/payout">
                   <i className="fe fe-dollar-sign nav-icon" />
@@ -52,14 +59,9 @@ export function Sidebar() {
                 </Link>
               </li>
               
-              {/* <li className="nav-item">
-                <a className="nav-link" href="instructor-courses.html">
-                  <i className="fe fe-book nav-icon" />
-                  My Courses
-                </a>
-              </li>
               
-              <li className="nav-item">
+              
+              {/* <li className="nav-item">
                 <a className="nav-link" href="instructor-reviews.html">
                   <i className="fe fe-star nav-icon" />
                   Reviews

@@ -1,7 +1,25 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Sidebar } from "../../components/navigation/sidebar.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
 
 function Payout() {
+  const location = useLocation()
+  const urlQueryParams = new URLSearchParams(location.search)
+
+  const affidavit = urlQueryParams.get('affidavit')
+  const incorrect = urlQueryParams.get('incorrect')
+  const correct = urlQueryParams.get('correct')
+
+  const [formData, setFormData] = useState({ paymentMethod: '' })
+
+  const handleChange = (e) => {
+    setFormData(prevState => {
+      return { ...prevState, [e.target.name]: e.target.value }
+    })
+  }
+
+
   return (
     <>
       <div className="pt-5 pb-5">
@@ -28,7 +46,7 @@ function Payout() {
                 </div>
                 {/* Card body */}
                 <div className="card-body">
-                  <div
+                  {/* <div
                     className="alert bg-light-warning text-dark-warning alert-dismissible fade show"
                     role="alert"
                   >
@@ -37,32 +55,20 @@ function Payout() {
                       Your selected payout method was confirmed on Next Payout
                       on 15 July, 2020
                     </p>
-                    {/* Button */}
+                    
                     <button
                       type="button"
                       className="btn-close"
                       data-bs-dismiss="alert"
                       aria-label="Close"
                     ></button>
-                  </div>
+                  </div> */}
+
                   <div className="row mt-6">
-                    <div className="col-xl-4 col-lg-4 col-md-12 col-12 mb-3 mb-lg-0">
-                      <div className="text-center">
-                        {/* PayOut chart */}
-                        <div id="payoutChart" className="apex-charts" />
-                        <h4 className="mb-1">Your Earning this month</h4>
-                        <h5 className="mb-0 display-4 fw-bold">$3,210</h5>
-                        <p className="px-4">
-                          Update your payout method in settings
-                        </p>
-                        <a href="#" className="btn btn-primary">
-                          Withdraw Earning
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-xl-8 col-lg-8 col-md-12 col-12">
+                    
+                    <div className="col-xl-8 col-lg-8 col-md-12 col-12" onChange={handleChange}>
                       {/* Check box */}
-                      <div className="border p-4 rounded-3 mb-3">
+                      {/* <div className="border p-4 rounded-3 mb-3">
                         <div className="custom-control custom-radio">
                           <input
                             type="radio"
@@ -77,7 +83,7 @@ function Payout() {
                           >
                             <img
                               src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/paypal-small.svg"
-                              alt
+                              alt=""
                             />
                           </label>
                           <p>
@@ -87,6 +93,32 @@ function Payout() {
                             Remove Account
                           </a>
                         </div>
+                      </div> */}
+                      {/* Check box */}
+                      <div className="border p-4 rounded-3 mb-3">
+                        <div className="custom-control custom-radio">
+                          <input
+                            type="radio"
+                            id="customRadio3"
+                            name="paymentMethod"
+                            className="form-check-input"
+                            value="enaira"
+                            checked
+                          />
+                          <label
+                            className="form-check-label ps-1 h4"
+                            htmlFor="customRadio3"
+                          >
+                            eNaira
+                          </label><br />
+                          <span 
+                            style={{ 
+                              marginLeft: '20px',
+                              fontWeight: 'bold'
+                            }}>
+                              #1500
+                          </span>
+                        </div>
                       </div>
                       {/* Check box */}
                       <div className="border p-4 rounded-3 mb-3">
@@ -94,8 +126,10 @@ function Payout() {
                           <input
                             type="radio"
                             id="customRadio2"
-                            name="customRadio"
+                            name="paymentMethod"
                             className="form-check-input"
+                            value="payoneer"
+                            disabled
                           />
                           <label
                             className="form-check-label ps-1"
@@ -108,24 +142,28 @@ function Payout() {
                           </label>
                         </div>
                       </div>
-                      {/* Check box */}
-                      <div className="border p-4 rounded-3">
-                        <div className="custom-control custom-radio">
-                          <input
-                            type="radio"
-                            id="customRadio3"
-                            name="customRadio"
-                            className="form-check-input"
-                          />
-                          <label
-                            className="form-check-label ps-1 h4"
-                            htmlFor="customRadio3"
-                          >
-                            Bank Transfer
-                          </label>
-                        </div>
-                      </div>
+
+                      <button className="btn btn-primary">
+                        Make payment
+                      </button>
+                      
                     </div>
+
+                    {/* <div className="col-xl-4 col-lg-4 col-md-12 col-12 mb-3 mb-lg-0">
+                      <div className="text-center">
+                        
+                        <div id="payoutChart" className="apex-charts" />
+                        <h4 className="mb-1">Your Earning this month</h4>
+                        <h5 className="mb-0 display-4 fw-bold">$3,210</h5>
+                        <p className="px-4">
+                          Update your payout method in settings
+                        </p>
+                        <a href="#" className="btn btn-primary">
+                          Payment
+                        </a>
+                      </div>
+                    </div> */}
+
                   </div>
                 </div>
               </div>

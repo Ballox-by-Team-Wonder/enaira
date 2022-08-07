@@ -2,15 +2,11 @@ import { useEffect, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux'
-import { loginUser } from '../../redux/auth/auth.slice';
-import { selectAuthUser } from '../../redux/auth/auth.selectors'
 
 import { Button } from '../../components/button/button.component';
-import axios from 'axios';
 
-import { useSelect } from '../../hooks/use-select.hook'
-import { Select } from '../../components/select/select.component';
+import { useSelect } from '../../hooks/use-select-kyc.hook'
+import { Select } from '../../components/select/select-kyc.component';
 import { useHttp } from '../../hooks/use-http.hook';
 import { HTTP_STATUS } from '../../constants/http-status.constant';
 
@@ -67,12 +63,7 @@ function Kyc() {
                     />
                   </a>
                   <h1 className="mb-1 fw-bold">Kyc</h1>
-                  <span>
-                    Don’t have an account?{" "}
-                    <Link to="/sign-up" className="ms-1">
-                      Sign up
-                    </Link>
-                  </span>
+                  
                 </div>
 
                 <p style={{ color: 'green' }}>{ !!isKycSuccess && 'verification successful, you will be redirected shortly' }</p>
@@ -81,8 +72,11 @@ function Kyc() {
 
                 {/* Form */}
                 <form onSubmit={handleSubmit}>
+                    <label className="form-label" style={{ marginBottom: '-10px' }}>
+                      KYC type
+                    </label>
                     <Select 
-                      label="Kyc type"
+                      // label="Kyc type"
                       value={selectValue}
                       handleChange={handleSelectChange}
                     />

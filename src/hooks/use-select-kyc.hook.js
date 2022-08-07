@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 
-export function useSelect(initValue) {
-    const [value, setValue] = useState(initValue.value || '')
+export function useSelect() {
+    const [value, setValue] = useState("bvn")
 
     const handleChange = e => {
         setValue(e.target.value)
