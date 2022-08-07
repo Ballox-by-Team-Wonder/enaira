@@ -33,9 +33,19 @@ export function Navbar() {
             to="/dashboard"
           >
             <img
-              src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo.svg"
+              src="/assets/images/png/iswear.png"
               alt=""
+              height="35"
             />
+            <span 
+              style={{ 
+                fontWeight: "bold", 
+                marginLeft: '15px',
+                fontSize: '22px'
+              }}
+            >
+              iSwear
+            </span>
           </Link>
           {/* Mobile view nav wrap */}
           <ul className="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap">

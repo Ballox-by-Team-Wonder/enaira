@@ -51,14 +51,13 @@ function SignIn() {
               {/* Card body */}
               <div className="card-body p-6">
                 <div className="mb-4">
-                  <a href="https://codescandy.com/geeks-bootstrap-5/index.html">
-                    <img
-                      src="https://codescandy.com/geeks-bootstrap-5/assets/images/brand/logo/logo-icon.svg"
-                      className="mb-4"
-                      alt=""
-                    />
-                  </a>
-                  <h1 className="mb-1 fw-bold">Sign in</h1>
+                  <img
+                    src="/assets/images/png/iswear.png"
+                    alt=""
+                    height="50"
+
+                  />
+                  <h1 className="mb-1 mt-4 fw-bold">Sign in</h1>
                   <span>
                     Don’t have an account?{" "}
                     <Link to="/sign-up" className="ms-1">

@@ -1,8 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { logout } from "../../redux/auth/auth.slice";
 
 
 export function Sidebar() {
+  const navigate = useNavigate()
   const { pathname } = useLocation();
+
+  const dispatch = useDispatch()
+
+  const _logout = () => dispatch(logout())
+
+
+  const handleLogout = () => {
+    _logout()
+    navigate('/sign-in')
+  }
 
   const handleNavItemClassName = (name) => {
     return pathname.includes(name)
@@ -45,7 +58,7 @@ export function Sidebar() {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className={handleNavItemClassName('affidavit')}>
                 <Link className="nav-link" to="/affidavit">
                   <i className="fe fe-book nav-icon" />
                   Affidavit
@@ -149,10 +162,10 @@ export function Sidebar() {
 
               <hr />
 
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleLogout}>
                 <a
                   className="nav-link"
-                  href="https://codescandy.com/geeks-bootstrap-5/index.html"
+                  href="#"
                 >
                   <i className="fe fe-power nav-icon" />
                   Sign Out

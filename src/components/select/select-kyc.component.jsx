@@ -16,7 +16,7 @@ export function Select({ label, value, handleChange }) {
                 label={label}
                 value={value}
                 onChange={handleChange}
-                variant="standard"
+                variant="filled"
             >
                 <MenuItem value="bvn">BVN</MenuItem>
                 <MenuItem value="nin" disabled>National Identity Number</MenuItem>
