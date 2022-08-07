@@ -42,7 +42,7 @@ function SignUp() {
 
     _signupUser(formData)
     .unwrap()
-    .then(() => navigate('/dashboard'))
+    .then(() => navigate('/kyc'))
   }
 
   return (
