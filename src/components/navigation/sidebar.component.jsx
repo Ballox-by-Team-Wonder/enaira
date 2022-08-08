@@ -65,6 +65,27 @@ export function Sidebar() {
                 </Link>
               </li>
 
+              <li className={handleNavItemClassName('get-a-lawyer')}>
+                <Link className="nav-link" to="/get-a-lawyer">
+                  <i className="fe fe-book nav-icon" />
+                  Get a lawyer
+                </Link>
+              </li>
+
+              <li className={handleNavItemClassName('make-a-request')}>
+                <Link className="nav-link" to="/make-a-request">
+                  <i className="fe fe-book nav-icon" />
+                  Make a request
+                </Link>
+              </li>
+
+              <li className={handleNavItemClassName('go-to-court')}>
+                <Link className="nav-link" to="#">
+                  <i className="fe fe-book nav-icon" />
+                  Go to court
+                </Link>
+              </li>
+
               <li className={handleNavItemClassName('payout')}>
                 <Link className="nav-link" to="/payout">
                   <i className="fe fe-dollar-sign nav-icon" />

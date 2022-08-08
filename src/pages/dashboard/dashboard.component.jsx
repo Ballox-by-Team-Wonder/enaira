@@ -30,23 +30,23 @@ function Dashboard() {
               <Grid container spacing={3}>
                 <SimpleAccordion 
                   summary="Request affidavit"
-                  description="content description"
+                  description="Request an online affidavit."
                   link="/affidavit"
                 />
                 <SimpleAccordion 
                   summary="Get a lawyer"
-                  description="content description"
-                  link="#"
+                  description=""
+                  link="/get-a-lawyer"
                 />
                 <SimpleAccordion 
                   summary="Make a request"
-                  description="content description"
-                  link="#"
+                  description=""
+                  link="/make-a-request"
                 />
 
                 <SimpleAccordion 
                   summary="Go to court"
-                  description="content description"
+                  description=""
                   link="#"
                 />
               </Grid>
