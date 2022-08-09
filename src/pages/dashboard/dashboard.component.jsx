@@ -28,27 +28,34 @@ function Dashboard() {
               <hr style={{ color: 'gray', marginBottom: '50px' }} />
               
               <Grid container spacing={3}>
-                <SimpleAccordion 
-                  summary="Request affidavit"
-                  description="Request an online affidavit."
-                  link="/affidavit"
-                />
-                <SimpleAccordion 
-                  summary="Get a lawyer"
-                  description=""
-                  link="/get-a-lawyer"
-                />
-                <SimpleAccordion 
-                  summary="Make a request"
-                  description=""
-                  link="/make-a-request"
-                />
-
-                <SimpleAccordion 
-                  summary="Go to court"
-                  description=""
-                  link="#"
-                />
+                <Grid item xs={12} md={6}>
+                  <SimpleAccordion 
+                    summary="Request affidavit"
+                    description="Request an online affidavit."
+                    link="/affidavit"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <SimpleAccordion 
+                    summary="Get a lawyer"
+                    description=""
+                    link="/get-a-lawyer"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <SimpleAccordion 
+                    summary="Make a request"
+                    description=""
+                    link="/make-a-request"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <SimpleAccordion 
+                    summary="Go to court"
+                    description=""
+                    link="#"
+                  />
+                </Grid>
               </Grid>
               
             </div>

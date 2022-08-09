@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { SimpleAccordion } from "../../components/accordion/accordion.component";
+import { BasicModal } from "../../components/modal/modal.component";
 import { Sidebar } from "../../components/navigation/sidebar.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
+import { useModal } from "../../hooks/use-modal.hook";
 
 function Payout() {
   const location = useLocation()
@@ -12,6 +15,8 @@ function Payout() {
   const correct = urlQueryParams.get('correct')
 
   const [formData, setFormData] = useState({ paymentMethod: '' })
+
+  const [modalState, handleModalOpen, handleModalClose] = useModal()
 
   const handleChange = (e) => {
     setFormData(prevState => {
@@ -41,7 +46,7 @@ function Payout() {
                 <div className="card-header">
                   <h3 className="mb-0">Payout Method</h3>
                   <p className="mb-0">
-                    Order Dashboard is a quick overview of all current orders.
+                    View all transactions performed on your account.
                   </p>
                 </div>
                 {/* Card body */}
@@ -121,7 +126,7 @@ function Payout() {
                         </div>
                       </div>
                       {/* Check box */}
-                      <div className="border p-4 rounded-3 mb-3">
+                      {/* <div className="border p-4 rounded-3 mb-3">
                         <div className="custom-control custom-radio">
                           <input
                             type="radio"
@@ -141,9 +146,9 @@ function Payout() {
                             />
                           </label>
                         </div>
-                      </div>
+                      </div> */}
 
-                      <button className="btn btn-primary">
+                      <button className="btn btn-primary" onClick={handleModalOpen}>
                         Make payment
                       </button>
                       
@@ -231,6 +236,7 @@ function Payout() {
                           </div>
                         </th> */}
                         <th className="border-0">ID</th>
+                        <th className="border-0">Purpose</th>
                         <th className="border-0">Method</th>
                         <th className="border-0">Status</th>
                         <th className="border-0">Amount</th>
@@ -241,26 +247,94 @@ function Payout() {
                     <tbody>
                       
                       <tr>
-                        {/* <td>
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="withdrawTen"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="withdrawTen"
-                            />
-                          </div>
-                        </td> */}
                         <td className="align-middle">#953</td>
+                        <td className="align-middle">Affidavit</td>
                         <td className="align-middle">eNaira</td>
                         <td className="align-middle">
                           <span className="badge bg-success">Paid</span>
                         </td>
-                        <td className="align-middle">$5435</td>
+                        <td className="align-middle">#1,500</td>
                         <td className="align-middle">Jan 15, 2020</td>
+                        <td className="align-middle">
+                          <span className="dropdown dropstart">
+                            <a
+                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
+                              href="#"
+                              role="button"
+                              id="paymentDropdown8"
+                              data-bs-toggle="dropdown"
+                              data-bs-offset="-20,20"
+                              aria-expanded="false"
+                            >
+                              <i className="fe fe-more-vertical" />
+                            </a>
+                            <span
+                              className="dropdown-menu"
+                              aria-labelledby="paymentDropdown8"
+                            >
+                              <span className="dropdown-header">More</span>
+                              <a className="dropdown-item" href="#">
+                                {/* <i className="fe fe-edit dropdown-item-icon" /> */}
+                                View
+                              </a>
+                              <a className="dropdown-item" href="#">
+                                {/* <i className="fe fe-trash dropdown-item-icon" /> */}
+                                Download
+                              </a>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="align-middle">#978</td>
+                        <td className="align-middle">Lawyer fees</td>
+                        <td className="align-middle">eNaira</td>
+                        <td className="align-middle">
+                          <span className="badge bg-success">Paid</span>
+                        </td>
+                        <td className="align-middle">#50,000</td>
+                        <td className="align-middle">Dec 15, 2021</td>
+                        <td className="align-middle">
+                          <span className="dropdown dropstart">
+                            <a
+                              className="btn-icon btn btn-ghost btn-sm rounded-circle"
+                              href="#"
+                              role="button"
+                              id="paymentDropdown8"
+                              data-bs-toggle="dropdown"
+                              data-bs-offset="-20,20"
+                              aria-expanded="false"
+                            >
+                              <i className="fe fe-more-vertical" />
+                            </a>
+                            <span
+                              className="dropdown-menu"
+                              aria-labelledby="paymentDropdown8"
+                            >
+                              <span className="dropdown-header">More</span>
+                              <a className="dropdown-item" href="#">
+                                {/* <i className="fe fe-edit dropdown-item-icon" /> */}
+                                View
+                              </a>
+                              <a className="dropdown-item" href="#">
+                                {/* <i className="fe fe-trash dropdown-item-icon" /> */}
+                                Download
+                              </a>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="align-middle">#980</td>
+                        <td className="align-middle">Affidavit</td>
+                        <td className="align-middle">eNaira</td>
+                        <td className="align-middle">
+                          <span className="badge bg-success">Paid</span>
+                        </td>
+                        <td className="align-middle">#2,000</td>
+                        <td className="align-middle">Feb 18, 2022</td>
                         <td className="align-middle">
                           <span className="dropdown dropstart">
                             <a
@@ -335,6 +409,34 @@ function Payout() {
           </div>
         </div>
       </div>
+
+      <BasicModal
+        open={modalState}
+        handleClose={handleModalClose}
+      >
+        <h2>Complete Payment</h2>
+        <hr />
+
+        <SimpleAccordion 
+          summary="Pay from enaira wallet"
+          description="Payment is made automatically from your enaira wallet to us."
+          // description2={
+          //   <div style={{ wordWrap: 'break-word'}}>
+          //     <span>7XJBN5B44ULMA5RF7HKZMX3OLXEROWF4LX5ZG2VK76B4J7SYCLPTETNFAU</span>
+
+          //   </div>
+          // }
+          buttonText="Pay"
+          noPadding
+        />
+
+        <SimpleAccordion 
+          summary="Pay from bank account"
+          description="Enaira is automatically purchased from your bank account and transferred to us with this option."
+          buttonText="Pay"
+          noPadding
+        />
+      </BasicModal>
     </>
   );
 }

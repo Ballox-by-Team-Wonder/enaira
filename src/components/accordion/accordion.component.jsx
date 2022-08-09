@@ -7,13 +7,19 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export function SimpleAccordion({ summary, description, link = '#' }) {
+export function SimpleAccordion({ 
+  summary, 
+  description, 
+  description2, 
+  link = '#', 
+  buttonText = 'Use service', 
+  noPadding 
+}) {
 
   return (
-    <Grid item xs={12} md={6}>
       <Accordion 
         sx={{ 
-            padding: '15px 0',
+            padding: noPadding ? '' : '15px 0',
             
         }}>
         <AccordionSummary
@@ -33,17 +39,18 @@ export function SimpleAccordion({ summary, description, link = '#' }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            { description }
+          { description }            
           </Typography>
+
+          { description2 }
           
           <Link to={link}>
             <button className="btn btn-primary mt-5">
-                Use service
+              { buttonText }
             </button>
           </Link>
         </AccordionDetails>
       </Accordion>
       
-    </Grid>
   );
 }
