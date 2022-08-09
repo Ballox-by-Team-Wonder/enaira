@@ -6,8 +6,8 @@ import { useSelect } from "../../hooks/use-select.hook";
 import { useState } from 'react'
 
 const affidavitOptions = [
-    { name: 'Change of Name', value: 'name' },
-    { name: 'Change of Age', value: 'age' },
+    { name: 'Correction of Name', value: 'name' },
+    { name: 'Correction of Date of Birth', value: 'Date Of Birth' },
 ]
 
 function Affidavit() {
@@ -131,7 +131,7 @@ function Affidavit() {
                           id="correct"
                           name="correct"
                           className="form-control"
-                          placeholder={`Incorrect ${affidavitType}`}
+                          placeholder={`correct ${affidavitType}`}
                           required
                         />
                       </div>

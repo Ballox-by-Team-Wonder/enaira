@@ -122,6 +122,24 @@ function SignUp() {
                       required
                     />
                   </div>
+                  {/* Gender
+                  <div className="mb-3" onChange={handleChange}>
+                    <label htmlFor="" className="form-label">
+                      Gender
+                    </label>:&nbsp;&nbsp;
+                    <input 
+                      type="radio" 
+                      value="Male" 
+                      name="gender"
+                      required
+                    /> Male &nbsp;&nbsp;
+                    <input 
+                      type="radio" 
+                      value="Female" 
+                      name="gender"
+                      required
+                    /> Female
+                  </div> */}
                   {/* Account type */}
                   <div className="mb-3" onChange={handleChange}>
                     <label htmlFor="" className="form-label">
