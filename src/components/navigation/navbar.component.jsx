@@ -1621,108 +1621,22 @@ export function Navbar() {
                     /> */}
                   </div>
                 </a>
-                <div className="dropdown-menu dropdown-menu-end">
-                  {/* <div className="dropdown-item">
-                    <div className="d-flex">
-                      <div className="avatar avatar-md avatar-indicators avatar-online">
-                        <img
-                          alt="avatar"
-                          src="../assets/images/avatar/avatar-1.jpg"
-                          className="rounded-circle"
-                        />
-                      </div>
-                      <div className="ms-3 lh-1">
-                        <h5 className="mb-1">Annette Black</h5>
-                        <p className="mb-0 text-muted">annette@geeksui.com</p>
-                      </div>
-                    </div>
-                  </div> */}
-
-                  {/* <div className="dropdown-divider" /> */}
-
-                  {/* <ul className="list-unstyled">
-                    <li className="dropdown-submenu dropstart-lg">
-                      <a
-                        className="dropdown-item dropdown-list-group-item dropdown-toggle"
-                        href="#"
-                      >
-                        <i className="fe fe-circle me-2" />
-                        Status
-                      </a>
-                      <ul className="dropdown-menu">
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <span className="badge-dot bg-success me-2" />
-                            Online
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <span className="badge-dot bg-secondary me-2" />
-                            Offline
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <span className="badge-dot bg-warning me-2" />
-                            Away
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <span className="badge-dot bg-danger me-2" />
-                            Busy
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="profile-edit.html">
-                        <i className="fe fe-user me-2" />
-                        Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="student-subscriptions.html"
-                      >
-                        <i className="fe fe-star me-2" />
-                        Subscription
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <i className="fe fe-settings me-2" />
-                        Settings
-                      </a>
-                    </li>
-                    <li>
-                      <Link to="/sign-in" className="dropdown-item">
-                        <i className="fe fe-settings me-2" />
-                        Sign in
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/sign-up" className="dropdown-item">
-                        <i className="fe fe-settings me-2" />
-                        Sign up
-                      </Link>
-                    </li>
-                  </ul> */}
-                  {/* <div className="dropdown-divider" /> */}
-                  <ul className="list-unstyled">
-                    <li onClick={handleLogout}>
-                      <a
-                        className="dropdown-item"
-                        href="#"
-                      >
-                        <i className="fe fe-power me-2" />
-                        Sign Out
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                
+                { userData?._id && (
+                  <div className="dropdown-menu dropdown-menu-end">
+                    <ul className="list-unstyled">
+                      <li onClick={handleLogout}>
+                        <a
+                          className="dropdown-item"
+                          href="#"
+                        >
+                          <i className="fe fe-power me-2" />
+                          Sign Out
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </li>
             </ul>
           </div>
