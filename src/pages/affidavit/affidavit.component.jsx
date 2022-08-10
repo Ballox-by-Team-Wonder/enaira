@@ -4,6 +4,7 @@ import { Select } from "../../components/select/select.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
 import { useSelect } from "../../hooks/use-select.hook";
 import { useState } from 'react'
+import { Verification } from "../../components/verification/verification.component";
 
 const affidavitOptions = [
     { name: 'Correction of Name', value: 'name' },
@@ -135,34 +136,10 @@ function Affidavit() {
                           required
                         />
                       </div>
-                      {/* Last name */}
-                      {/* <div className="mb-3 col-12 col-md-6">
-                        <label className="form-label" htmlFor="lname">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          id="lname"
-                          className="form-control"
-                          placeholder="Last Name"
-                          required
-                        />
-                      </div> */}
-                      {/* Phone */}
-                      {/* <div className="mb-3 col-12 col-md-6">
-                        <label className="form-label" htmlFor="phone">
-                          Phone
-                        </label>
-                        <input
-                          type="text"
-                          id="phone"
-                          className="form-control"
-                          placeholder="Phone"
-                          required
-                        />
-                      </div> */}
+
+                      <Verification />
                       
-                      {/* State */}
+                      
                       
                       <div className="col-12">
                         {/* Button */}
