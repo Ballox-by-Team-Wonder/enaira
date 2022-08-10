@@ -86,6 +86,13 @@ export function Sidebar() {
                 </Link>
               </li>
 
+              <li className={handleNavItemClassName('profile')}>
+                <Link className="nav-link" to="/profile">
+                  <i className="fe fe-settings nav-icon" />
+                  Edit Profile
+                </Link>
+              </li>
+
               <li className={handleNavItemClassName('payout')}>
                 <Link className="nav-link" to="/payout">
                   <i className="fe fe-dollar-sign nav-icon" />

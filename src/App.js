@@ -7,6 +7,7 @@ import GetALawyer from './pages/get-a-lawyer/get-a-lawyer.component';
 import Kyc from './pages/kyc/kyc.component';
 import MakeARequest from './pages/make-a-request/make-a-request.component';
 import Payout from './pages/payout/payout.component';
+import Profile from './pages/profile/profile.component';
 import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/affidavit" element={<Affidavit />} />
         <Route path="/get-a-lawyer" element={<GetALawyer />} />
         <Route path="/make-a-request" element={<MakeARequest />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
