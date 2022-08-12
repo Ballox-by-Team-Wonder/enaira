@@ -16,6 +16,8 @@ export const getLoggedInUser = asyncRequest(`${namespace}/getLoggedInUser`, '/ap
 
 export const updateUser = asyncRequest(`${namespace}/updateUser`, '/api/user/updateUser', 'patch')
 
+export const incrementUserPoints = asyncRequest(`${namespace}/incrementUserPoints`, '/api/user/incrementUserPoints', 'get')
+
 
 
 const DEFAULT = { authStatus: null, userData: null, authError: null }
@@ -53,6 +55,10 @@ const authSlice = createSlice({
         [updateUser.pending]: asyncReducers.authUserPending,
         [updateUser.fulfilled]: asyncReducers.getLoggedInUserFulfilled,
         [updateUser.rejected]: asyncReducers.authUserRejected,
+
+        [incrementUserPoints.pending]: asyncReducers.authUserPending,
+        [incrementUserPoints.fulfilled]: asyncReducers.getLoggedInUserFulfilled,
+        [incrementUserPoints.rejected]: asyncReducers.authUserRejected,
     }
 })
 

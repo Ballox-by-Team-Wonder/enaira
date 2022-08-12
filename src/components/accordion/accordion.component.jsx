@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Button } from '../button/button.component';
 
 export function SimpleAccordion({ 
   children,
@@ -13,6 +14,8 @@ export function SimpleAccordion({
   description, 
   link = '#', 
   buttonText = 'Use service', 
+  handleClick,
+  status,
   noPadding 
 }) {
 
@@ -45,9 +48,12 @@ export function SimpleAccordion({
           { children && children }
           
           <Link to={link}>
-            <button className="btn btn-primary mt-5">
+            <Button className="mt-5" onClick={handleClick} status={status}>
               { buttonText }
-            </button>
+            </Button>
+            {/* <button className="btn btn-primary mt-5" onclick={handleClick}>
+              { buttonText }
+            </button> */}
           </Link>
         </AccordionDetails>
       </Accordion>

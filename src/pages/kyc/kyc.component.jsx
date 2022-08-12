@@ -7,7 +7,7 @@ import { Button } from '../../components/button/button.component';
 
 import { useSelect } from '../../hooks/use-select-kyc.hook'
 import { Select } from '../../components/select/select-kyc.component';
-import { useHttp } from '../../hooks/use-http.hook';
+import { useKyc } from '../../hooks/use-http.hook';
 import { HTTP_STATUS } from '../../constants/http-status.constant';
 
 
@@ -23,7 +23,7 @@ function Kyc() {
 
   const [isKycSuccess, setIsKycSuccess] = useState(null)
 
-  const { bvnLoading, verifyBvn } = useHttp()
+  const { bvnLoading, verifyBvn } = useKyc()
   
 
   const handleChange = (e) => {
@@ -35,8 +35,8 @@ function Kyc() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    verifyBvn(formData, (err, success) => {
-      if (success) {
+    verifyBvn(formData, (err, data) => {
+      if (data) {
         setIsKycSuccess(true)
         setTimeout(() => navigate('/dashboard'), 3000)
       } else if (err) {

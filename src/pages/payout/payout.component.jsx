@@ -1,13 +1,16 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SimpleAccordion } from "../../components/accordion/accordion.component";
 import { BasicModal } from "../../components/modal/modal.component";
 import { Sidebar } from "../../components/navigation/sidebar.component";
 import Printer from "../../components/printer/printer.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
+import { HTTP_STATUS } from "../../constants/http-status.constant";
+import { useCreateInvoice, usePayWithTxnPin } from "../../hooks/use-http.hook";
 import { useModal } from "../../hooks/use-modal.hook";
 import { selectAuthUser } from "../../redux/auth/auth.selectors";
+import { incrementUserPoints } from "../../redux/auth/auth.slice";
 
 
 const transactionHistory = [
@@ -32,10 +35,75 @@ function Payout() {
   const [formData, setFormData] = useState({ paymentMethod: '' })
 
   const [modalState, handleModalOpen, handleModalClose] = useModal()
+  const [responseModalState, handleResponseModalOpen, handleResponseModalClose] = useModal()
+
+  const [isInvoiceLoading, createInvoice] = useCreateInvoice()
+  const [isPayWithTxnPinLoading, payWithTxnPin] = usePayWithTxnPin()
+
+  const [responseData, setResponseData] = useState({ error: false, message: '' })
+
+  const dispatch = useDispatch()
+  const _incrementUserPoints = () => dispatch(incrementUserPoints())
+
 
   const handleChange = (e) => {
     setFormData(prevState => {
       return { ...prevState, [e.target.name]: e.target.value }
+    })
+  }
+
+
+  const handlePayWithPin = () => {
+    const invoice = {
+      amount: amount,
+      narration: "iSwear Payment",
+      reference: `NXG${Math.floor(1000000000000 + Math.random() * 9000000000000)}`,
+      product_code: "001",
+      channel_code: "APISNG"
+    }
+
+    const payWithPinData = (invoiceID) => ({
+      "channel_code": "APISNG",
+      "phone_number": "08056064768",
+      "amount": amount,
+      "reference": `NXG${Math.floor(1000000000000 + Math.random() * 9000000000000)}`,
+      "transaction_pin": "1234",
+      "invoice_id": invoiceID,
+      "product_code": "001"
+    })
+
+    createInvoice(invoice, (err, data) => {
+      if (err) {
+        handleModalClose()
+        handleResponseModalOpen()
+
+        setResponseData({ 
+          error: true, 
+          message: 'Sorry, an error occured and your request could not be processed.' 
+        })
+      } else if (data) {
+        payWithTxnPin(payWithPinData(data.response_data.guid), (txnErr, txnData) => {
+          if (txnErr) {
+            handleModalClose()
+            handleResponseModalOpen()
+
+            setResponseData({
+              error: true, 
+              message: 'Sorry, an error occured and your request could not be processed.' 
+            })
+          } else if (txnData) {
+            handleModalClose()
+            handleResponseModalOpen()
+
+            _incrementUserPoints()
+
+            setResponseData({ 
+              error: false,
+              message: `Congratulations!, you have successfully completed the payment for this transaction.`
+            })
+          }
+        })
+      }
     })
   }
 
@@ -369,6 +437,8 @@ function Payout() {
           description="Payment is made automatically from your enaira wallet to us."
           buttonText="Confirm Payment"
           noPadding
+          status={(isPayWithTxnPinLoading || isInvoiceLoading) && HTTP_STATUS.PENDING}
+          handleClick={handlePayWithPin}
         />
 
         <SimpleAccordion 
@@ -418,6 +488,23 @@ function Payout() {
           </div>
           
         </SimpleAccordion>
+      </BasicModal>
+
+      <BasicModal
+        open={responseModalState}
+        handleClose={handleResponseModalClose}
+      >
+        <div className="text-center">
+          <h2 
+            style={{
+              textAlign: 'center',
+              color: responseData.error ? '#e6441c' : '#4ac918'
+            }}
+          >
+            { responseData.error ? 'Error!' : 'Success!' }
+          </h2>
+          <p>{ responseData.message }</p>
+        </div>
       </BasicModal>
     </>
   );
