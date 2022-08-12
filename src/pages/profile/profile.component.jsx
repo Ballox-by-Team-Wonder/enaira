@@ -33,7 +33,7 @@ function Profile() {
     const _updateUser = (data) => dispatch(updateUser(data))
 
     useEffect(() => {
-        if (userData.lga) {
+        if (userData?.lga) {
             setFormData({
                 homeTown: userData.homeTown,
                 lga: userData.lga,

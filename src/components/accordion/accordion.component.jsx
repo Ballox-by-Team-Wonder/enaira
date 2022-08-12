@@ -8,9 +8,9 @@ import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export function SimpleAccordion({ 
+  children,
   summary, 
   description, 
-  description2, 
   link = '#', 
   buttonText = 'Use service', 
   noPadding 
@@ -42,7 +42,7 @@ export function SimpleAccordion({
           { description }            
           </Typography>
 
-          { description2 }
+          { children && children }
           
           <Link to={link}>
             <button className="btn btn-primary mt-5">

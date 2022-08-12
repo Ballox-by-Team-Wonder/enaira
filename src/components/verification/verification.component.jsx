@@ -63,7 +63,13 @@ export function Verification() {
 
       <div className="mb-3 col-12 col-md-12">
         <div className="form-check">
-          <input type="checkbox" className="form-check-input" checked />I verify
+          <input 
+            type="checkbox" 
+            className="form-check-input" 
+            checked 
+            readOnly
+          />
+          I verify
           that ever information provided is valid and accurate and I am liable
           to legal actions if found otherwise.
         </div>

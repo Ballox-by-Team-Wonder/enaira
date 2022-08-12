@@ -7,6 +7,7 @@ export function UserInfo() {
   
     const firstName = userData?.firstName || '__'
     const lastName = userData?.lastName || '__'
+    const loyaltyPoints = userData?.points
 
     return (
         <>
@@ -60,6 +61,10 @@ export function UserInfo() {
                     {/* <p className="mb-0 d-block">@Jennywilson</p> */}
                   </div>
                 </div>
+                <div className="fw-bold">
+                  <span style={{ fontSize: '22px' }}>{ loyaltyPoints }</span> loyalty pts
+                </div>
+
                 {/* <div>
                   <a
                     href="add-course.html"

@@ -1,3 +1,7 @@
+import { useCallback, useEffect } from 'react';
+
+import { useDispatch } from 'react-redux'
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { Navbar } from './components/navigation/navbar.component'
@@ -11,8 +15,20 @@ import Profile from './pages/profile/profile.component';
 import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
 
+import { userToken } from './services/auth.service'
+
+import { getLoggedInUser } from './redux/auth/auth.slice'
+
 
 function App() {
+  const dispatch = useDispatch()
+  const _getLoggedInUser = useCallback(() => dispatch(getLoggedInUser()), [dispatch])
+
+  useEffect(() => {
+    if (userToken) {
+      _getLoggedInUser()
+    }
+  }, [_getLoggedInUser])
 
   return (
     <BrowserRouter>

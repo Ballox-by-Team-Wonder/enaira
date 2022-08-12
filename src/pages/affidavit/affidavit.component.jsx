@@ -31,7 +31,7 @@ function Affidavit() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        navigate(`/payout?affidavit=${affidavitType}&incorrect=${formData.incorrect}&correct=${formData.correct}`)
+        navigate(`/payout?affidavit=${affidavitType}&incorrect=${formData.incorrect}&correct=${formData.correct}&amount=1500`)
     }
 
 
