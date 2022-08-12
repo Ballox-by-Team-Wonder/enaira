@@ -7,7 +7,7 @@ import { Sidebar } from "../../components/navigation/sidebar.component";
 import Printer from "../../components/printer/printer.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
 import { HTTP_STATUS } from "../../constants/http-status.constant";
-import { useCreateInvoice, usePayWithTxnPin } from "../../hooks/use-http.hook";
+import { useCreateInvoice, usePaymentGateway, usePayWithTxnPin, useVirtualPayment } from "../../hooks/use-http.hook";
 import { useModal } from "../../hooks/use-modal.hook";
 import { selectAuthUser } from "../../redux/auth/auth.selectors";
 import { incrementUserPoints } from "../../redux/auth/auth.slice";
@@ -39,6 +39,9 @@ function Payout() {
 
   const [isInvoiceLoading, createInvoice] = useCreateInvoice()
   const [isPayWithTxnPinLoading, payWithTxnPin] = usePayWithTxnPin()
+  const [isPaymentGatewayLoading, payWithPaymentGateway] = usePaymentGateway()
+  const [isVirtualPaymentLoading, virtualPayment] = useVirtualPayment()
+
 
   const [responseData, setResponseData] = useState({ error: false, message: '' })
 
@@ -102,6 +105,72 @@ function Payout() {
               message: `Congratulations!, you have successfully completed the payment for this transaction.`
             })
           }
+        })
+      }
+    })
+  }
+
+  const handlePayWithGateway = () => {
+    const data = {
+      "customer_id": "07032755966",
+      "merchant_id": "1234567",
+      "request_id": "ACCE994bbe57eeecbbe978",
+      "channel_code": "QOINPAY"
+    }
+    payWithPaymentGateway(data, (err, data) => {
+      if (err) {
+        handleModalClose()
+        handleResponseModalOpen()
+
+        setResponseData({
+          error: true, 
+          message: 'Sorry, an error occured and your request could not be processed.' 
+        })
+      } else if (data) {
+        handleModalClose()
+        handleResponseModalOpen()
+
+        _incrementUserPoints()
+
+        setResponseData({ 
+          error: false,
+          message: `Congratulations!, you have successfully completed the payment for this transaction.`
+        })
+      }
+    })
+  }
+
+  const handleVirtualPayment = () => {
+    const data = {
+      "debit_merchant_id": "ACCESSHOMES",
+      "debit_customer_id": "07032755966",
+      "credit_account": "0760261888",
+      "credit_bank_code": "044",
+      "debit_virtual_account": "1444484348",
+      "transaction_amount": 200,
+      "transaction_narration": "Testing",
+      "transaction_reference": "BRZ12337GDUJEDU8378W5",
+      "channel_code": "APISNG"
+    }
+
+    virtualPayment(data, (err, data) => {
+      if (err) {
+        handleModalClose()
+        handleResponseModalOpen()
+
+        setResponseData({
+          error: true, 
+          message: 'Sorry, an error occured and your request could not be processed.' 
+        })
+      } else if (data) {
+        handleModalClose()
+        handleResponseModalOpen()
+
+        _incrementUserPoints()
+
+        setResponseData({ 
+          error: false,
+          message: `Congratulations!, you have successfully completed the payment for this transaction.`
         })
       }
     })
@@ -446,12 +515,16 @@ function Payout() {
           description="Enaira is automatically purchased from your bank account and transferred to us with this option."
           buttonText="Confirm Payment"
           noPadding
+          status={isPaymentGatewayLoading && HTTP_STATUS.PENDING}
+          handleClick={handlePayWithGateway}
         />
 
         <SimpleAccordion 
           summary="Swap USD to enaira to pay"
           buttonText="Confirm Payment"
           noPadding
+          status={isVirtualPaymentLoading && HTTP_STATUS.PENDING}
+          handleClick={handleVirtualPayment}
         >
           <div className="d-flex justify-content-between">
             <span className="fw-bold">Rate:</span> <span>1 USD to 445 enaira</span>
@@ -472,6 +545,8 @@ function Payout() {
           summary="Swap other currencies to enaira to pay"
           buttonText="Confirm Payment"
           noPadding
+          status={isVirtualPaymentLoading && HTTP_STATUS.PENDING}
+          handleClick={handleVirtualPayment}
         >
           <div className="d-flex justify-content-between">
             <span className="fw-bold">Check Rate:</span> 
