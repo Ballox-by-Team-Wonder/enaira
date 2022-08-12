@@ -18,6 +18,7 @@ import SignUp from './pages/sign-up/sign-up.component';
 import { userToken } from './services/auth.service'
 
 import { getLoggedInUser } from './redux/auth/auth.slice'
+import ViewDocument from './pages/view-document/view-document.component';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/get-a-lawyer" element={<GetALawyer />} />
         <Route path="/make-a-request" element={<MakeARequest />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/view-document" element={<ViewDocument />} />
       </Routes>
     </BrowserRouter>
   );

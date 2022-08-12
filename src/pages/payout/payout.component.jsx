@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { SimpleAccordion } from "../../components/accordion/accordion.component";
 import { BasicModal } from "../../components/modal/modal.component";
 import { Sidebar } from "../../components/navigation/sidebar.component";
+import Printer from "../../components/printer/printer.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
 import { useModal } from "../../hooks/use-modal.hook";
 import { selectAuthUser } from "../../redux/auth/auth.selectors";
@@ -17,6 +18,7 @@ const transactionHistory = [
 
 
 function Payout() {
+  const navigate = useNavigate()
   const location = useLocation()
   const urlQueryParams = new URLSearchParams(location.search)
 
@@ -293,12 +295,16 @@ function Payout() {
                                 aria-labelledby="paymentDropdown8"
                               >
                                 <span className="dropdown-header">More</span>
-                                <button className="dropdown-item">
+                                <button 
+                                  className="dropdown-item"
+                                  onClick={() => navigate('/view-document')}
+                                >
                                   View
                                 </button>
-                                <button className="dropdown-item">
+                                <Printer />
+                                {/* <button className="dropdown-item">
                                   Download
-                                </button>
+                                </button> */}
                               </span>
                             </span>
                           </td>
