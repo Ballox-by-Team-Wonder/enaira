@@ -44,7 +44,7 @@ function GetALawyer() {
               <Sidebar />
             </div>
             <div className="col-lg-9 col-md-8 col-12">
-              <h1>Choose a lawyer</h1>
+              <h1 class="mb-2 display-4 fw-bold">Choose a lawyer</h1>
               <hr style={{ color: "gray", marginBottom: "50px" }} />
 
               <div className="row">
@@ -55,9 +55,7 @@ function GetALawyer() {
                         <div className="text-center">
                           <img src={lawyer.img} className="rounded-circle avatar-xl mb-3" alt="" />
                           <h4 className="mb-0">{lawyer.name}</h4>
-                          <p className="mb-0 fs-6 text-muted">
-                                   {lawyer.dis}
-                                </p> 
+                          <p className="mb-0 fs-6 text-muted">{lawyer.dis}</p>
                         </div>
                         <div className="d-flex justify-content-between border-bottom border-top py-2 mt-3">
                           <span>Rating</span>

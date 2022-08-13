@@ -19,45 +19,28 @@ function Dashboard() {
           <div className="row mt-0 mt-md-4">
             <div className="col-lg-3 col-md-4 col-12">
               {/* User profile */}
-              
-              <Sidebar />
 
+              <Sidebar />
             </div>
             <div className="col-lg-9 col-md-8 col-12">
-              <h1>Let's get you started</h1>
-              <hr style={{ color: 'gray', marginBottom: '50px' }} />
+              <h1 class="mb-2 display-4 fw-bold">Let's get you started</h1>
               
+              <hr style={{ color: "gray", marginBottom: "50px" }} />
+
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
-                  <SimpleAccordion 
-                    summary="Request affidavit"
-                    description="Request an online affidavit."
-                    link="/affidavit"
-                  />
+                  <SimpleAccordion summary="Request affidavit" description="Request an online affidavit." link="/affidavit" />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <SimpleAccordion 
-                    summary="Get Assistance"
-                    description=""
-                    link="/get-a-lawyer"
-                  />
+                  <SimpleAccordion summary="Get Assistance" description="" link="/get-a-lawyer" />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <SimpleAccordion 
-                    summary="Make a request"
-                    description=""
-                    link="/make-a-request"
-                  />
+                  <SimpleAccordion summary="Make a request" description="" link="/make-a-request" />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <SimpleAccordion 
-                    summary="Go to court"
-                    description=""
-                    link="#"
-                  />
+                  <SimpleAccordion summary="Go to court" description="" link="#" />
                 </Grid>
               </Grid>
-              
             </div>
           </div>
         </div>
