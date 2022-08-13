@@ -89,28 +89,37 @@ function Support() {
                 <h2 class="mb-2 display-5">Frequently Asked Questions</h2>
                 <p class="lead">Some common questions asked on iSwear</p>
                 <SimpleAccordion
-                  summary="Making Wallet Payments on iSwear ?"
+                  summary="Making wallet payments on iSwear ?"
                   description="first copy the wallet address generated on the payout page, head to your external eNaira wallet input the amount and the wallet address, then complete the payment  after a few mintutes proceed to your iSwear dashboard and confirm payments "
                   noPadding
+                  hideButton
                 />
                 <SimpleAccordion
                   summary="How does foreign exchange works on iSwear ?"
                   description="So by making payment into the generated Account in the payout page, the payment is then converted to eNaira by our Payment partner who sends confirmation for your order. Dont worry all of this is automated in minutes"
                   noPadding
+                  hideButton
                 />
                 <SimpleAccordion
-                  summary="What are Loyality points ?"
+                  summary="What are Loyality Points ?"
                   description="
                 Loyality points are points accumalated by making payments from an enaira wallet or by swapping your foreign currency to pay on iSwear"
                   noPadding
+                  hideButton
                 />
-                <SimpleAccordion summary="What counts as a request on iSwear ?" description="We are open to legal related requests that are not listed as a service on iSwear ." noPadding />
-                <SimpleAccordion
-                  summary="in cases of High Emergency, how can i reach the iSwear Team?"
-                  description="
-                please reach out to us by calling our hotline +2348110671481 or 
-                by emailing us Support@iSwear.com"
+                <SimpleAccordion 
+                  summary="What counts as a request on iSwear ?" 
+                  description="We are open to legal related requests that are not listed as a service on iSwear ." 
                   noPadding
+                  hideButton 
+                />
+                <SimpleAccordion
+                  summary="In cases of high emergency, how can i reach the iSwear team?"
+                  description="
+                  please reach out to us by calling our hotline +2348110671481 or 
+                  by emailing us Support@iSwear.com"
+                  noPadding
+                  hideButton
                 />
               </div>
             </div>

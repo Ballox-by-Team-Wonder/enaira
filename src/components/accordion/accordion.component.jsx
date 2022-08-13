@@ -16,7 +16,8 @@ export function SimpleAccordion({
   buttonText = 'Use service', 
   handleClick,
   status,
-  noPadding 
+  noPadding,
+  hideButton
 }) {
 
   return (
@@ -47,14 +48,13 @@ export function SimpleAccordion({
 
           { children && children }
           
-          <Link to={link}>
-            <Button className="mt-5" onClick={handleClick} status={status}>
-              { buttonText }
-            </Button>
-            {/* <button className="btn btn-primary mt-5" onclick={handleClick}>
-              { buttonText }
-            </button> */}
-          </Link>
+          { !hideButton && (
+            <Link to={link}>
+              <Button className="mt-5" onClick={handleClick} status={status}>
+                { buttonText }
+              </Button>
+            </Link>
+          )}
         </AccordionDetails>
       </Accordion>
       
