@@ -14,10 +14,10 @@ import { incrementUserPoints } from "../../redux/auth/auth.slice";
 
 
 const transactionHistory = [
-  { purpose: 'Affidavit', method: 'eNaira', status: 'Paid', amount: '#1,500', date: 'Jan 15, 2020' },
-  { purpose: 'Lawyer fees', method: 'eNaira', status: 'Paid', amount: '#50,000', date: 'Dec 15, 2021' },
-  { purpose: 'Affidavit', method: 'eNaira', status: 'Paid', amount: '#2,000', date: 'Feb 18, 2022' },
-]
+  { id: "1234456677", purpose: "Affidavit", method: "eNaira", status: "Paid", amount: "#1,500", date: "Jan 15, 2020" },
+  { id: "2234456567", purpose: "Lawyer fees", method: "eNaira", status: "Paid", amount: "#50,000", date: "Dec 15, 2021" },
+  { id: "3234456677", purpose: "Affidavit", method: "eNaira", status: "Paid", amount: "#2,000", date: "Feb 18, 2022" },
+];
 
 
 function Payout() {
@@ -408,7 +408,7 @@ function Payout() {
                       
                       { transactionHistory.map((txn, i) => (
                         <tr>
-                          <td className="align-middle">#{i + 1}</td>
+                          <td className="align-middle">#{txn.id}</td>
                           <td className="align-middle">{txn.purpose}</td>
                           <td className="align-middle">{txn.method}</td>
                           <td className="align-middle">

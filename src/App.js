@@ -14,6 +14,7 @@ import Payout from './pages/payout/payout.component';
 import Profile from './pages/profile/profile.component';
 import SignIn from './pages/sign-in/sign-in.component';
 import SignUp from './pages/sign-up/sign-up.component';
+import Support from "./pages/support/support";
 
 import { userToken } from './services/auth.service'
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/get-a-lawyer" element={<GetALawyer />} />
         <Route path="/make-a-request" element={<MakeARequest />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/support" element={<Support/>} />
         <Route path="/view-document" element={<ViewDocument />} />
       </Routes>
     </BrowserRouter>

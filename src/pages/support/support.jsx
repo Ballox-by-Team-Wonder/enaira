@@ -1,7 +1,8 @@
 import { Sidebar } from "../../components/navigation/sidebar.component";
 import { UserInfo } from "../../components/user-info/user-info.component";
+import { SimpleAccordion } from "../../components/accordion/accordion.component";
 
-function MakeARequest() {
+function Support() {
   return (
     <>
       <div className="pt-5 pb-5">
@@ -20,9 +21,9 @@ function MakeARequest() {
               <h1>Customer Support Center</h1>
               <hr style={{ color: "gray", marginBottom: "50px" }} />
 
-              <p style={{ fontSize: '16px' }}>Please tell us what issues or error are you experiencing with our system, also feel free to request for further assistance</p>
+              <p style={{ fontSize: "16px" }}>Please tell us what issues or error are you experiencing with our system, also feel free to request for further assistance</p>
 
-              <form className="row" onSubmit={e => e.preventDefault()}>
+              <form className="row" onSubmit={(e) => e.preventDefault()}>
                 {/* First name */}
                 {/* <div className="mb-3 col-12 col-md-6">
                   <label className="form-label" htmlFor="incorrect">
@@ -78,6 +79,12 @@ function MakeARequest() {
                   </button>
                 </div>
               </form>
+
+              <SimpleAccordion
+                summary="Meeting Payments on iSwear"
+                description="Payment is made automatically from your enaira wallet to us."
+                noPadding
+              />
             </div>
           </div>
         </div>
@@ -86,4 +93,4 @@ function MakeARequest() {
   );
 }
 
-export default MakeARequest;
+export default Support;

@@ -37,7 +37,7 @@ function Dashboard() {
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <SimpleAccordion 
-                    summary="Get a lawyer"
+                    summary="Get Assistance"
                     description=""
                     link="/get-a-lawyer"
                   />
