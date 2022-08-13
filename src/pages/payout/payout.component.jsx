@@ -104,6 +104,11 @@ function Payout() {
               error: false,
               message: `Congratulations!, you have successfully completed the payment for this transaction.`
             })
+
+            localStorage.setItem('affidavit', JSON.stringify({
+              incorrect,
+              correct
+            }))
           }
         })
       }
@@ -172,6 +177,7 @@ function Payout() {
           error: false,
           message: `Congratulations!, you have successfully completed the payment for this transaction.`
         })
+
       }
     })
   }
