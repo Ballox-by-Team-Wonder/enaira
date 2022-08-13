@@ -79,113 +79,58 @@ function Profile() {
               <div className="card">
                 {/* Card header */}
                 <div className="card-header">
-                  <h3 className="mb-0">Edit Profile</h3>
-                  <p className="mb-0">
-                    {/* You have full control to manage your own account setting. */}
-                  </p>
+                  <h3 className="mb-2 display-5 fw-bold">Edit Profile</h3>
+                  <p className="mb-0">{/* You have full control to manage your own account setting. */}</p>
                 </div>
                 {/* Card body */}
                 <div className="card-body">
-                  
                   {/* <hr className="my-5" /> */}
                   <div>
                     {/* <h4 className="mb-0">Select affidavit type</h4> */}
-                    <p className="mb-4">
-                      {/* You are required to input the wrong details you wish to correct. */}
-                    </p>
-
-                    
+                    <p className="mb-4">{/* You are required to input the wrong details you wish to correct. */}</p>
 
                     {/* Form */}
                     <form className="row" onSubmit={handleSubmit}>
-
-                      
-
-
                       {/* First name */}
                       <div className="mb-3 col-12 col-md-6">
                         <label className="form-label" htmlFor="lga">
                           Local Government Area
                         </label>
-                        <input
-                          value={formData.lga}
-                          onChange={handleChange}
-                          type="text"
-                          id="lga"
-                          name="lga"
-                          className="form-control"
-                          placeholder="local government area"
-                          required
-                        />
+                        <input value={formData.lga} onChange={handleChange} type="text" id="lga" name="lga" className="form-control" placeholder="local government area" required />
                       </div>
 
                       <div className="mb-3 col-12 col-md-6">
                         <label className="form-label" htmlFor="homeTown">
-                            Home Town
+                          Home Town
                         </label>
-                        <input
-                          value={formData.homeTown}
-                          onChange={handleChange}
-                          type="text"
-                          id="homeTown"
-                          name="homeTown"
-                          className="form-control"
-                          placeholder="home town"
-                          required
-                        />
+                        <input value={formData.homeTown} onChange={handleChange} type="text" id="homeTown" name="homeTown" className="form-control" placeholder="home town" required />
                       </div>
 
                       <div className="mb-3 col-12 col-md-6">
                         <label className="form-label" htmlFor="state">
-                            State of origin
+                          State of origin
                         </label>
-                        <input
-                          value={formData.state}
-                          onChange={handleChange}
-                          type="text"
-                          id="state"
-                          name="state"
-                          className="form-control"
-                          placeholder="state of origin"
-                          required
-                        />
+                        <input value={formData.state} onChange={handleChange} type="text" id="state" name="state" className="form-control" placeholder="state of origin" required />
                       </div>
 
                       <div className="mb-3 col-12 col-md-6">
                         <label className="form-label" htmlFor="religion">
-                            Religion
+                          Religion
                         </label>
-                        <input
-                          value={formData.religion}
-                          onChange={handleChange}
-                          type="text"
-                          id="religion"
-                          name="religion"
-                          className="form-control"
-                          placeholder="religion"
-                          required
-                        />
+                        <input value={formData.religion} onChange={handleChange} type="text" id="religion" name="religion" className="form-control" placeholder="religion" required />
                       </div>
-                      
 
                       <div className="mb-3 col-12 col-md-6">
                         <label className="form-label" htmlFor="">
-                            Institution related to changes made
+                          Institution related to changes made
                         </label>
-                        <Select 
-                            value={institution}
-                            handleChange={handleInstitutionChange}
-                            list={institutionOptions}
-                        />
+                        <Select value={institution} handleChange={handleInstitutionChange} list={institutionOptions} />
                       </div>
-                                            
+
                       <div className="col-12">
                         {/* Button */}
-                        <Button 
-                            type="submit"
-                            status={authStatus}
-                        >
-                            Submit
+                        <Button type="submit" status={authStatus}>
+                          Submit
                         </Button>
                       </div>
                     </form>

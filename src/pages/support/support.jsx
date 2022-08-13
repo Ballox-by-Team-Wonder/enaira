@@ -19,7 +19,7 @@ function Support() {
             </div>
 
             <div className="col-lg-9 col-md-8 col-12">
-              <h1 class="mb-2 display-4 fw-bold">Customer Support Center</h1>
+              <h1 class="mb-2 display-5 fw-bold">Customer Support Center</h1>
               <hr style={{ color: "gray", marginBottom: "50px" }} />
 
               <div className="col-lg-12 col-md-8 col-12">
@@ -86,7 +86,7 @@ function Support() {
               </div>
 
               <div className="col-lg-12 col-md-8 col-12 " style={{ marginTop: "50px" }}>
-                <h2 class="mb-2 display-4">Frequently Asked Questions</h2>
+                <h2 class="mb-2 display-5">Frequently Asked Questions</h2>
                 <p class="lead">Some common questions asked on iSwear</p>
                 <SimpleAccordion
                   summary="Making Wallet Payments on iSwear ?"

@@ -23,7 +23,7 @@ function Dashboard() {
               <Sidebar />
             </div>
             <div className="col-lg-9 col-md-8 col-12">
-              <h1 class="mb-2 display-4 fw-bold">Let's get you started</h1>
+              <h1 class="mb-2 display-5 fw-bold">Let's get you started</h1>
               
               <hr style={{ color: "gray", marginBottom: "50px" }} />
 

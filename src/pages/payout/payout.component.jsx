@@ -183,7 +183,7 @@ function Payout() {
         <div className="container">
           {/* User info */}
           <UserInfo />
-          
+
           {/* Content */}
           <div className="row mt-0 mt-md-4">
             <div className="col-lg-3 col-md-4 col-12">
@@ -193,14 +193,12 @@ function Payout() {
 
             <div className="col-lg-9 col-md-8 col-12">
               {/* Card */}
-              { amount &&
+              {amount && (
                 <div className="card mb-4">
                   {/* Card header */}
                   <div className="card-header">
                     <h3 className="mb-0">Payout Method</h3>
-                    <p className="mb-0">
-                      View all transactions performed on your account.
-                    </p>
+                    <p className="mb-0">View all transactions performed on your account.</p>
                   </div>
                   {/* Card body */}
                   <div className="card-body">
@@ -223,12 +221,12 @@ function Payout() {
                     </div> */}
 
                     <div className="row mt-6">
+                      {userData?.points ? (
+                        <p>A discount based on {userData?.points} loyalty points has been applied for this payment transaction.</p>
+                      ) : (
+                        <p>You do not have any loyalty points therefore there is no discount for this transaction.</p>
+                      )}
 
-                      { userData?.points 
-                        ? <p>A discount based on { userData?.points } loyalty points has been applied for this payment transaction.</p>
-                        : <p>You do not have any loyalty points therefore there is no discount for this transaction.</p> 
-                      }
-                      
                       <div className="col-xl-8 col-lg-8 col-md-12 col-12" onChange={handleChange}>
                         {/* Check box */}
                         {/* <div className="border p-4 rounded-3 mb-3">
@@ -260,27 +258,18 @@ function Payout() {
                         {/* Check box */}
                         <div className="border p-4 rounded-3 mb-3">
                           <div className="custom-control custom-radio">
-                            <input
-                              type="radio"
-                              id="customRadio3"
-                              name="paymentMethod"
-                              className="form-check-input"
-                              value="enaira"
-                              checked
-                              readOnly
-                            />
-                            <label
-                              className="form-check-label ps-1 h4"
-                              htmlFor="customRadio3"
-                            >
+                            <input type="radio" id="customRadio3" name="paymentMethod" className="form-check-input" value="enaira" checked readOnly />
+                            <label className="form-check-label ps-1 h4" htmlFor="customRadio3">
                               eNaira
-                            </label><br />
-                            <span 
-                              style={{ 
-                                marginLeft: '20px',
-                                fontWeight: 'bold'
-                              }}>
-                                #{amount}
+                            </label>
+                            <br />
+                            <span
+                              style={{
+                                marginLeft: "20px",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              #{amount}
                             </span>
                           </div>
                         </div>
@@ -310,7 +299,6 @@ function Payout() {
                         <button className="btn btn-primary" onClick={handleModalOpen}>
                           Make payment
                         </button>
-                        
                       </div>
 
                       {/* <div className="col-xl-4 col-lg-4 col-md-12 col-12 mb-3 mb-lg-0">
@@ -327,16 +315,15 @@ function Payout() {
                           </a>
                         </div>
                       </div> */}
-
                     </div>
                   </div>
                 </div>
-              }
+              )}
               {/* Card */}
               <div className="card mb-4">
                 {/* Card header */}
                 <div className="card-header border-bottom-0">
-                  <h3 className="h4 mb-3">Payment History</h3>
+                  <h3 className="mb-2 display-5 fw-bold">Payment History</h3>
                   <div className="row align-items-center">
                     <div className="col-lg-3 col-md-6 pe-md-0 mb-2 mb-lg-0">
                       {/* Custom select */}
@@ -405,8 +392,7 @@ function Payout() {
                       </tr>
                     </thead>
                     <tbody>
-                      
-                      { transactionHistory.map((txn, i) => (
+                      {transactionHistory.map((txn, i) => (
                         <tr>
                           <td className="align-middle">#{txn.id}</td>
                           <td className="align-middle">{txn.purpose}</td>
@@ -418,24 +404,12 @@ function Payout() {
                           <td className="align-middle">{txn.date}</td>
                           <td className="align-middle">
                             <span className="dropdown dropstart">
-                              <button
-                                className="btn-icon btn btn-ghost btn-sm rounded-circle"
-                                id="paymentDropdown8"
-                                data-bs-toggle="dropdown"
-                                data-bs-offset="-20,20"
-                                aria-expanded="false"
-                              >
+                              <button className="btn-icon btn btn-ghost btn-sm rounded-circle" id="paymentDropdown8" data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
                                 <i className="fe fe-more-vertical" />
                               </button>
-                              <span
-                                className="dropdown-menu"
-                                aria-labelledby="paymentDropdown8"
-                              >
+                              <span className="dropdown-menu" aria-labelledby="paymentDropdown8">
                                 <span className="dropdown-header">More</span>
-                                <button 
-                                  className="dropdown-item"
-                                  onClick={() => navigate('/view-document')}
-                                >
+                                <button className="dropdown-item" onClick={() => navigate("/view-document")}>
                                   View
                                 </button>
                                 <Printer />
@@ -447,8 +421,6 @@ function Payout() {
                           </td>
                         </tr>
                       ))}
-
-                      
                     </tbody>
                   </table>
                   {/* <div className="pt-4 pb-4">
@@ -494,14 +466,11 @@ function Payout() {
         </div>
       </div>
 
-      <BasicModal
-        open={modalState}
-        handleClose={handleModalClose}
-      >
+      <BasicModal open={modalState} handleClose={handleModalClose}>
         <h2>Complete Payment</h2>
         <hr />
 
-        <SimpleAccordion 
+        <SimpleAccordion
           summary="Pay from enaira wallet"
           description="Payment is made automatically from your enaira wallet to us."
           buttonText="Confirm Payment"
@@ -510,7 +479,7 @@ function Payout() {
           handleClick={handlePayWithPin}
         />
 
-        <SimpleAccordion 
+        <SimpleAccordion
           summary="Pay from bank account"
           description="Enaira is automatically purchased from your bank account and transferred to us with this option."
           buttonText="Confirm Payment"
@@ -519,13 +488,7 @@ function Payout() {
           handleClick={handlePayWithGateway}
         />
 
-        <SimpleAccordion 
-          summary="Swap USD to enaira to pay"
-          buttonText="Confirm Payment"
-          noPadding
-          status={isVirtualPaymentLoading && HTTP_STATUS.PENDING}
-          handleClick={handleVirtualPayment}
-        >
+        <SimpleAccordion summary="Swap USD to enaira to pay" buttonText="Confirm Payment" noPadding status={isVirtualPaymentLoading && HTTP_STATUS.PENDING} handleClick={handleVirtualPayment}>
           <div className="d-flex justify-content-between">
             <span className="fw-bold">Rate:</span> <span>1 USD to 445 enaira</span>
           </div>
@@ -538,10 +501,9 @@ function Payout() {
           <div className="d-flex justify-content-between">
             <span className="fw-bold">Account Name:</span> <span>iSwear</span>
           </div>
-          
         </SimpleAccordion>
 
-        <SimpleAccordion 
+        <SimpleAccordion
           summary="Swap other currencies to enaira to pay"
           buttonText="Confirm Payment"
           noPadding
@@ -549,8 +511,12 @@ function Payout() {
           handleClick={handleVirtualPayment}
         >
           <div className="d-flex justify-content-between">
-            <span className="fw-bold">Check Rate:</span> 
-            <span><a href="https://wise.com/gb/currency-converter/" target="_blank" rel="noreferrer">foreign exchange rate</a></span>
+            <span className="fw-bold">Check Rate:</span>
+            <span>
+              <a href="https://wise.com/gb/currency-converter/" target="_blank" rel="noreferrer">
+                foreign exchange rate
+              </a>
+            </span>
           </div>
           <div className="d-flex justify-content-between">
             <span className="fw-bold">Swift Code:</span> <span>ABNGNGLA</span>
@@ -561,24 +527,20 @@ function Payout() {
           <div className="d-flex justify-content-between">
             <span className="fw-bold">Account Name:</span> <span>iSwear</span>
           </div>
-          
         </SimpleAccordion>
       </BasicModal>
 
-      <BasicModal
-        open={responseModalState}
-        handleClose={handleResponseModalClose}
-      >
+      <BasicModal open={responseModalState} handleClose={handleResponseModalClose}>
         <div className="text-center">
-          <h2 
+          <h2
             style={{
-              textAlign: 'center',
-              color: responseData.error ? '#e6441c' : '#4ac918'
+              textAlign: "center",
+              color: responseData.error ? "#e6441c" : "#4ac918",
             }}
           >
-            { responseData.error ? 'Error!' : 'Success!' }
+            {responseData.error ? "Error!" : "Success!"}
           </h2>
-          <p>{ responseData.message }</p>
+          <p>{responseData.message}</p>
         </div>
       </BasicModal>
     </>

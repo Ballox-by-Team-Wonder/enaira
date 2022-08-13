@@ -55,10 +55,8 @@ function Affidavit() {
               <div className="card">
                 {/* Card header */}
                 <div className="card-header">
-                  <h3 className="mb-0">Request an affidavit</h3>
-                  <p className="mb-0">
-                    {/* You have full control to manage your own account setting. */}
-                  </p>
+                  <h3 className="mb-2 display-5 fw-bold">Request an affidavit</h3>
+                  <p className="mb-0">{/* You have full control to manage your own account setting. */}</p>
                 </div>
                 {/* Card body */}
                 <div className="card-body">
@@ -89,18 +87,12 @@ function Affidavit() {
                   {/* <hr className="my-5" /> */}
                   <div>
                     <h4 className="mb-0">Select affidavit type</h4>
-                    <p className="mb-4">
-                      {/* You are required to input the wrong details you wish to correct. */}
-                    </p>
+                    <p className="mb-4">{/* You are required to input the wrong details you wish to correct. */}</p>
 
                     <label className="form-label" htmlFor="">
-                        Affidavit Type
+                      Affidavit Type
                     </label>
-                    <Select 
-                        value={affidavitType}
-                        handleChange={handleAffidavitChange}
-                        list={affidavitOptions}
-                    />
+                    <Select value={affidavitType} handleChange={handleAffidavitChange} list={affidavitOptions} />
 
                     {/* Form */}
                     <form className="row" onSubmit={handleSubmit}>
@@ -123,24 +115,13 @@ function Affidavit() {
 
                       <div className="mb-3 col-12 col-md-12">
                         <label className="form-label" htmlFor="correct">
-                            Correct {affidavitType}
+                          Correct {affidavitType}
                         </label>
-                        <input
-                          value={formData.correct}
-                          onChange={handleChange}
-                          type="text"
-                          id="correct"
-                          name="correct"
-                          className="form-control"
-                          placeholder={`correct ${affidavitType}`}
-                          required
-                        />
+                        <input value={formData.correct} onChange={handleChange} type="text" id="correct" name="correct" className="form-control" placeholder={`correct ${affidavitType}`} required />
                       </div>
 
                       <Verification />
-                      
-                      
-                      
+
                       <div className="col-12">
                         {/* Button */}
                         <button className="btn btn-primary" type="submit">
