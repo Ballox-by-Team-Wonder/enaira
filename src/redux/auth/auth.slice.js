@@ -56,9 +56,9 @@ const authSlice = createSlice({
         [updateUser.fulfilled]: asyncReducers.getLoggedInUserFulfilled,
         [updateUser.rejected]: asyncReducers.authUserRejected,
 
-        [incrementUserPoints.pending]: asyncReducers.authUserPending,
-        [incrementUserPoints.fulfilled]: asyncReducers.getLoggedInUserFulfilled,
-        [incrementUserPoints.rejected]: asyncReducers.authUserRejected,
+        [incrementUserPoints.pending]: asyncReducers.incrementUserPointsPending,
+        [incrementUserPoints.fulfilled]: asyncReducers.incrementUserPointsFulfilled,
+        [incrementUserPoints.rejected]: asyncReducers.incrementUserPointsRejected,
     }
 })
 
