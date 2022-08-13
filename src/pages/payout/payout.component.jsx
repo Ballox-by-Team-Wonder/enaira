@@ -395,7 +395,7 @@ function Payout() {
                             />
                           </div>
                         </th> */}
-                        <th className="border-0">ID</th>
+                        <th className="border-0">iSwear Code</th>
                         <th className="border-0">Purpose</th>
                         <th className="border-0">Method</th>
                         <th className="border-0">Status</th>

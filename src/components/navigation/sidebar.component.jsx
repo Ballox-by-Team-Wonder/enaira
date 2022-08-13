@@ -27,10 +27,7 @@ export function Sidebar() {
     <>
       <nav className="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
         {/* Menu */}
-        <a
-          className="d-xl-none d-lg-none d-md-none text-inherit fw-bold"
-          href="#"
-        >
+        <a className="d-xl-none d-lg-none d-md-none text-inherit fw-bold" href="#">
           Menu
         </a>
         {/* Button */}
@@ -50,58 +47,62 @@ export function Sidebar() {
           <div className="navbar-nav flex-column">
             <span className="navbar-header">Dashboard</span>
             <ul className="list-unstyled ms-n2 mb-4">
-              
-              <li className={handleNavItemClassName('dashboard')}>
+              <li className={handleNavItemClassName("dashboard")}>
                 <Link className="nav-link" to="/dashboard">
                   <i className="fe fe-home nav-icon" />
                   My Dashboard
                 </Link>
               </li>
 
-              <li className={handleNavItemClassName('affidavit')}>
+              <li className={handleNavItemClassName("affidavit")}>
                 <Link className="nav-link" to="/affidavit">
                   <i className="fe fe-book nav-icon" />
                   Affidavit
                 </Link>
               </li>
 
-              <li className={handleNavItemClassName('get-a-lawyer')}>
+              <li className={handleNavItemClassName("get-a-lawyer")}>
                 <Link className="nav-link" to="/get-a-lawyer">
                   <i className="fe fe-book nav-icon" />
                   Get a lawyer
                 </Link>
               </li>
 
-              <li className={handleNavItemClassName('make-a-request')}>
+              <li className={handleNavItemClassName("make-a-request")}>
                 <Link className="nav-link" to="/make-a-request">
                   <i className="fe fe-book nav-icon" />
                   Make a request
                 </Link>
               </li>
 
-              <li className={handleNavItemClassName('go-to-court')}>
+              <li className={handleNavItemClassName("go-to-court")}>
                 <Link className="nav-link" to="#">
                   <i className="fe fe-book nav-icon" />
                   Go to court
                 </Link>
               </li>
 
-              <li className={handleNavItemClassName('profile')}>
+              <li className={handleNavItemClassName("profile")}>
                 <Link className="nav-link" to="/profile">
                   <i className="fe fe-settings nav-icon" />
                   Edit Profile
                 </Link>
               </li>
 
-              <li className={handleNavItemClassName('payout')}>
+              <li className={handleNavItemClassName("payout")}>
                 <Link className="nav-link" to="/payout">
                   <i className="fe fe-dollar-sign nav-icon" />
                   Payouts
                 </Link>
               </li>
-              
-              
-              
+
+              <li className={handleNavItemClassName("support")}>
+                <Link className="nav-link" to="/support">
+                  <i className="fe fe-users nav-icon" />
+                  Customer Support
+                </Link>
+              </li>
+
               {/* <li className="nav-item">
                 <a className="nav-link" href="instructor-reviews.html">
                   <i className="fe fe-star nav-icon" />
@@ -129,9 +130,7 @@ export function Sidebar() {
                   Students
                 </a>
               </li> */}
-              
-             
-              
+
               {/* <li className="nav-item ">
                 <a className="nav-link" href="instructor-quiz.html">
                   <i className="fe fe-help-circle nav-icon" />
@@ -191,10 +190,7 @@ export function Sidebar() {
               <hr />
 
               <li className="nav-item" onClick={handleLogout}>
-                <a
-                  className="nav-link"
-                  href="#"
-                >
+                <a className="nav-link" href="#">
                   <i className="fe fe-power nav-icon" />
                   Sign Out
                 </a>
