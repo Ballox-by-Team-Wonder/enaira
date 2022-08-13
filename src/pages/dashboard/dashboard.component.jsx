@@ -32,7 +32,7 @@ function Dashboard() {
                   <SimpleAccordion summary="Request affidavit" description="Request an online affidavit." link="/affidavit" />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <SimpleAccordion summary="Get Assistance" description="" link="/get-a-lawyer" />
+                  <SimpleAccordion summary="Get Assistance" description="Get access to our lawyers" link="/get-a-lawyer" />
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <SimpleAccordion summary="Make a request" description="" link="/make-a-request" />
